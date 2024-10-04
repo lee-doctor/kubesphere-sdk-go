@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DesiredNumberScheduled** | **int32** | The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/ | 
 **NumberAvailable** | Pointer to **int32** | The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds) | [optional] 
 **NumberMisscheduled** | **int32** | The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/ | 
-**NumberReady** | **int32** | The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and ready. | 
+**NumberReady** | **int32** | numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition. | 
 **NumberUnavailable** | Pointer to **int32** | The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds) | [optional] 
 **ObservedGeneration** | Pointer to **int64** | The most recent generation observed by the daemon set controller. | [optional] 
 **UpdatedNumberScheduled** | Pointer to **int32** | The total number of nodes that are running updated daemon pod | [optional] 

@@ -1,5 +1,5 @@
 /*
-KubeSphere
+KS API
 
 Testing ComponentStatusAPIService
 
@@ -22,13 +22,13 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ComponentStatusAPIService HandleGetComponentStatus", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetComponentsStatusV1alpha2", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var component string
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetComponentStatus(context.Background(), component).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetComponentsStatusV1alpha2(context.Background(), component).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -36,13 +36,13 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ComponentStatusAPIService HandleGetComponentStatusV3", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetComponentsStatusV1alpha3", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var component string
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetComponentStatusV3(context.Background(), component).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetComponentsStatusV1alpha3(context.Background(), component).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -50,11 +50,11 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ComponentStatusAPIService HandleGetComponents", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetComponentsV1alpha2", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetComponents(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetComponentsV1alpha2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -62,11 +62,11 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ComponentStatusAPIService HandleGetComponentsV3", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetComponentsV1alpha3", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetComponentsV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetComponentsV1alpha3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -74,11 +74,11 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ComponentStatusAPIService HandleGetSystemHealthStatus", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetSystemHealthStatusV1alpha2", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetSystemHealthStatus(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetSystemHealthStatusV1alpha2(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -86,11 +86,11 @@ func Test_openapi_ComponentStatusAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ComponentStatusAPIService HandleGetSystemHealthStatusV3", func(t *testing.T) {
+	t.Run("Test ComponentStatusAPIService GetSystemHealthStatusV1alpha3", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ComponentStatusAPI.HandleGetSystemHealthStatusV3(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ComponentStatusAPI.GetSystemHealthStatusV1alpha3(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

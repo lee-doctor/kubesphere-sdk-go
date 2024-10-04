@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ReadOnly** | Pointer to **bool** | Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
-**SecretName** | **string** | the name of secret that contains Azure Storage Account Name and Key | 
-**ShareName** | **string** | Share Name | 
+**ReadOnly** | Pointer to **bool** | readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
+**SecretName** | **string** | secretName is the  name of secret that contains Azure Storage Account Name and Key | 
+**ShareName** | **string** | shareName is the azure share Name | 
 
 ## Methods
 

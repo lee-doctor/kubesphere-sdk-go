@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Directory** | Pointer to **string** | Target directory name. Must not contain or start with &#39;..&#39;.  If &#39;.&#39; is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name. | [optional] 
-**Repository** | **string** | Repository URL | 
-**Revision** | Pointer to **string** | Commit hash for the specified revision. | [optional] 
+**Directory** | Pointer to **string** | directory is the target directory name. Must not contain or start with &#39;..&#39;.  If &#39;.&#39; is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name. | [optional] 
+**Repository** | **string** | repository is the URL | 
+**Revision** | Pointer to **string** | revision is the commit hash for the specified revision. | [optional] 
 
 ## Methods
 

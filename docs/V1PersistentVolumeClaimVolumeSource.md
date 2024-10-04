@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClaimName** | **string** | ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims | 
-**ReadOnly** | Pointer to **bool** | Will force the ReadOnly setting in VolumeMounts. Default false. | [optional] 
+**ClaimName** | **string** | claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims | 
+**ReadOnly** | Pointer to **bool** | readOnly Will force the ReadOnly setting in VolumeMounts. Default false. | [optional] 
 
 ## Methods
 

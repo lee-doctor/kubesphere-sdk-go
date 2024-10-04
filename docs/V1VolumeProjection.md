@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ClusterTrustBundle** | Pointer to [**V1ClusterTrustBundleProjection**](V1ClusterTrustBundleProjection.md) |  | [optional] 
 **ConfigMap** | Pointer to [**V1ConfigMapProjection**](V1ConfigMapProjection.md) |  | [optional] 
 **DownwardAPI** | Pointer to [**V1DownwardAPIProjection**](V1DownwardAPIProjection.md) |  | [optional] 
 **Secret** | Pointer to [**V1SecretProjection**](V1SecretProjection.md) |  | [optional] 
@@ -27,6 +28,31 @@ will change when the set of required properties is changed
 NewV1VolumeProjectionWithDefaults instantiates a new V1VolumeProjection object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClusterTrustBundle
+
+`func (o *V1VolumeProjection) GetClusterTrustBundle() V1ClusterTrustBundleProjection`
+
+GetClusterTrustBundle returns the ClusterTrustBundle field if non-nil, zero value otherwise.
+
+### GetClusterTrustBundleOk
+
+`func (o *V1VolumeProjection) GetClusterTrustBundleOk() (*V1ClusterTrustBundleProjection, bool)`
+
+GetClusterTrustBundleOk returns a tuple with the ClusterTrustBundle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusterTrustBundle
+
+`func (o *V1VolumeProjection) SetClusterTrustBundle(v V1ClusterTrustBundleProjection)`
+
+SetClusterTrustBundle sets ClusterTrustBundle field to given value.
+
+### HasClusterTrustBundle
+
+`func (o *V1VolumeProjection) HasClusterTrustBundle() bool`
+
+HasClusterTrustBundle returns a boolean if a field has been set.
 
 ### GetConfigMap
 

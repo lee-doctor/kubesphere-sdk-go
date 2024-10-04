@@ -1,5 +1,5 @@
 /*
-KubeSphere
+KS API
 
 Testing MultiClusterAPIService
 
@@ -22,15 +22,75 @@ func Test_openapi_MultiClusterAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MultiClusterAPIService GenerateAgentDeployment", func(t *testing.T) {
+	t.Run("Test MultiClusterAPIService BindingClusters", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.MultiClusterAPI.BindingClusters(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MultiClusterAPIService CreateLabels", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.MultiClusterAPI.CreateLabels(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MultiClusterAPIService DeleteLabels", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.MultiClusterAPI.DeleteLabels(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MultiClusterAPIService ListLabelGroups", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.MultiClusterAPI.ListLabelGroups(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MultiClusterAPIService UpdateKubeConfig", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var cluster string
 
-		httpRes, err := apiClient.MultiClusterAPI.GenerateAgentDeployment(context.Background(), cluster).Execute()
+		httpRes, err := apiClient.MultiClusterAPI.UpdateKubeConfig(context.Background(), cluster).Execute()
 
 		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test MultiClusterAPIService UpdateLabel", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var label string
+
+		resp, httpRes, err := apiClient.MultiClusterAPI.UpdateLabel(context.Background(), label).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | Pointer to **string** | Name is unique within a namespace to reference a secret resource. | [optional] 
-**Namespace** | Pointer to **string** | Namespace defines the space within which the secret name must be unique. | [optional] 
+**Name** | Pointer to **string** | name is unique within a namespace to reference a secret resource. | [optional] 
+**Namespace** | Pointer to **string** | namespace defines the space within which the secret name must be unique. | [optional] 
 
 ## Methods
 

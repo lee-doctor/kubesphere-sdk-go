@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FsType** | Pointer to **string** | Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Default is \&quot;xfs\&quot;. | [optional] 
-**Gateway** | **string** | The host address of the ScaleIO API Gateway. | 
-**ProtectionDomain** | Pointer to **string** | The name of the ScaleIO Protection Domain for the configured storage. | [optional] 
-**ReadOnly** | Pointer to **bool** | Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
+**FsType** | Pointer to **string** | fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Default is \&quot;xfs\&quot;. | [optional] 
+**Gateway** | **string** | gateway is the host address of the ScaleIO API Gateway. | 
+**ProtectionDomain** | Pointer to **string** | protectionDomain is the name of the ScaleIO Protection Domain for the configured storage. | [optional] 
+**ReadOnly** | Pointer to **bool** | readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
 **SecretRef** | [**V1LocalObjectReference**](V1LocalObjectReference.md) |  | 
-**SslEnabled** | Pointer to **bool** | Flag to enable/disable SSL communication with Gateway, default false | [optional] 
-**StorageMode** | Pointer to **string** | Indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned. | [optional] 
-**StoragePool** | Pointer to **string** | The ScaleIO Storage Pool associated with the protection domain. | [optional] 
-**System** | **string** | The name of the storage system as configured in ScaleIO. | 
-**VolumeName** | Pointer to **string** | The name of a volume already created in the ScaleIO system that is associated with this volume source. | [optional] 
+**SslEnabled** | Pointer to **bool** | sslEnabled Flag enable/disable SSL communication with Gateway, default false | [optional] 
+**StorageMode** | Pointer to **string** | storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned. | [optional] 
+**StoragePool** | Pointer to **string** | storagePool is the ScaleIO Storage Pool associated with the protection domain. | [optional] 
+**System** | **string** | system is the name of the storage system as configured in ScaleIO. | 
+**VolumeName** | Pointer to **string** | volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source. | [optional] 
 
 ## Methods
 

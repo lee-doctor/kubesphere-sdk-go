@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ChapAuthDiscovery** | Pointer to **bool** | whether support iSCSI Discovery CHAP authentication | [optional] 
-**ChapAuthSession** | Pointer to **bool** | whether support iSCSI Session CHAP authentication | [optional] 
-**FsType** | Pointer to **string** | Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi | [optional] 
-**InitiatorName** | Pointer to **string** | Custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface &lt;target portal&gt;:&lt;volume name&gt; will be created for the connection. | [optional] 
-**Iqn** | **string** | Target iSCSI Qualified Name. | 
-**IscsiInterface** | Pointer to **string** | iSCSI Interface Name that uses an iSCSI transport. Defaults to &#39;default&#39; (tcp). | [optional] 
-**Lun** | **int32** | iSCSI Target Lun number. | 
-**Portals** | Pointer to **[]string** | iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). | [optional] 
-**ReadOnly** | Pointer to **bool** | ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. | [optional] 
+**ChapAuthDiscovery** | Pointer to **bool** | chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication | [optional] 
+**ChapAuthSession** | Pointer to **bool** | chapAuthSession defines whether support iSCSI Session CHAP authentication | [optional] 
+**FsType** | Pointer to **string** | fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi | [optional] 
+**InitiatorName** | Pointer to **string** | initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface &lt;target portal&gt;:&lt;volume name&gt; will be created for the connection. | [optional] 
+**Iqn** | **string** | iqn is the target iSCSI Qualified Name. | 
+**IscsiInterface** | Pointer to **string** | iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to &#39;default&#39; (tcp). | [optional] 
+**Lun** | **int32** | lun represents iSCSI Target Lun number. | 
+**Portals** | Pointer to **[]string** | portals is the iSCSI Target Portal List. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). | [optional] 
+**ReadOnly** | Pointer to **bool** | readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. | [optional] 
 **SecretRef** | Pointer to [**V1LocalObjectReference**](V1LocalObjectReference.md) |  | [optional] 
-**TargetPortal** | **string** | iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). | 
+**TargetPortal** | **string** | targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260). | 
 
 ## Methods
 

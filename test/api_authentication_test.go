@@ -1,5 +1,5 @@
 /*
-KubeSphere
+KS API
 
 Testing AuthenticationAPIService
 
@@ -22,22 +22,11 @@ func Test_openapi_AuthenticationAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test AuthenticationAPIService Authorize", func(t *testing.T) {
+	t.Run("Test AuthenticationAPIService Logout", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		httpRes, err := apiClient.AuthenticationAPI.Authorize(context.Background()).Execute()
-
-		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test AuthenticationAPIService Login", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		resp, httpRes, err := apiClient.AuthenticationAPI.Login(context.Background()).Execute()
+		resp, httpRes, err := apiClient.AuthenticationAPI.Logout(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -45,13 +34,13 @@ func Test_openapi_AuthenticationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthenticationAPIService OauthCallBack", func(t *testing.T) {
+	t.Run("Test AuthenticationAPIService OauthCallback", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var callback string
 
-		resp, httpRes, err := apiClient.AuthenticationAPI.OauthCallBack(context.Background(), callback).Execute()
+		resp, httpRes, err := apiClient.AuthenticationAPI.OauthCallback(context.Background(), callback).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -59,11 +48,69 @@ func Test_openapi_AuthenticationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test AuthenticationAPIService Token", func(t *testing.T) {
+	t.Run("Test AuthenticationAPIService OpenidAuthorizeGet", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.AuthenticationAPI.Token(context.Background()).Execute()
+		httpRes, err := apiClient.AuthenticationAPI.OpenidAuthorizeGet(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthenticationAPIService OpenidAuthorizePost", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.AuthenticationAPI.OpenidAuthorizePost(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthenticationAPIService OpenidConfiguration", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.AuthenticationAPI.OpenidConfiguration(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthenticationAPIService OpenidKeys", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.AuthenticationAPI.OpenidKeys(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthenticationAPIService OpenidToken", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.AuthenticationAPI.OpenidToken(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test AuthenticationAPIService OpenidUserinfo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.AuthenticationAPI.OpenidUserinfo(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

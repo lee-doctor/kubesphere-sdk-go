@@ -11,32 +11,37 @@ Name | Type | Description | Notes
 **DnsConfig** | Pointer to [**V1PodDNSConfig**](V1PodDNSConfig.md) |  | [optional] 
 **DnsPolicy** | Pointer to **string** | Set DNS policy for the pod. Defaults to \&quot;ClusterFirst\&quot;. Valid values are &#39;ClusterFirstWithHostNet&#39;, &#39;ClusterFirst&#39;, &#39;Default&#39; or &#39;None&#39;. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to &#39;ClusterFirstWithHostNet&#39;. | [optional] 
 **EnableServiceLinks** | Pointer to **bool** | EnableServiceLinks indicates whether information about services should be injected into pod&#39;s environment variables, matching the syntax of Docker links. Optional: Defaults to true. | [optional] 
-**EphemeralContainers** | Pointer to [**[]V1EphemeralContainer**](V1EphemeralContainer.md) | List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource. This field is alpha-level and is only honored by servers that enable the EphemeralContainers feature. | [optional] 
+**EphemeralContainers** | Pointer to [**[]V1EphemeralContainer**](V1EphemeralContainer.md) | List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource. | [optional] 
 **HostAliases** | Pointer to [**[]V1HostAlias**](V1HostAlias.md) | HostAliases is an optional list of hosts and IPs that will be injected into the pod&#39;s hosts file if specified. This is only valid for non-hostNetwork pods. | [optional] 
 **HostIPC** | Pointer to **bool** | Use the host&#39;s ipc namespace. Optional: Default to false. | [optional] 
 **HostNetwork** | Pointer to **bool** | Host networking requested for this pod. Use the host&#39;s network namespace. If this option is set, the ports that will be used must be specified. Default to false. | [optional] 
 **HostPID** | Pointer to **bool** | Use the host&#39;s pid namespace. Optional: Default to false. | [optional] 
+**HostUsers** | Pointer to **bool** | Use the host&#39;s user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature. | [optional] 
 **Hostname** | Pointer to **string** | Specifies the hostname of the Pod If not specified, the pod&#39;s hostname will be set to a system-defined value. | [optional] 
-**ImagePullSecrets** | Pointer to [**[]V1LocalObjectReference**](V1LocalObjectReference.md) | ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. For example, in the case of docker, only DockerConfig type secrets are honored. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod | [optional] 
+**ImagePullSecrets** | Pointer to [**[]V1LocalObjectReference**](V1LocalObjectReference.md) | ImagePullSecrets is an optional list of references to secrets in the same namespace to use for pulling any of the images used by this PodSpec. If specified, these secrets will be passed to individual puller implementations for them to use. More info: https://kubernetes.io/docs/concepts/containers/images#specifying-imagepullsecrets-on-a-pod | [optional] 
 **InitContainers** | Pointer to [**[]V1Container**](V1Container.md) | List of initialization containers belonging to the pod. Init containers are executed in order prior to containers being started. If any init container fails, the pod is considered to have failed and is handled according to its restartPolicy. The name for an init container or normal container must be unique among all containers. Init containers may not have Lifecycle actions, Readiness probes, Liveness probes, or Startup probes. The resourceRequirements of an init container are taken into account during scheduling by finding the highest request/limit for each resource type, and then using the max of of that value or the sum of the normal containers. Limits are applied to init containers in a similar fashion. Init containers cannot currently be added or removed. Cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ | [optional] 
 **NodeName** | Pointer to **string** | NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements. | [optional] 
 **NodeSelector** | Pointer to **map[string]string** | NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node&#39;s labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/ | [optional] 
-**Overhead** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/20190226-pod-overhead.md This field is alpha-level as of Kubernetes v1.16, and is only honored by servers that enable the PodOverhead feature. | [optional] 
-**PreemptionPolicy** | Pointer to **string** | PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. This field is alpha-level and is only honored by servers that enable the NonPreemptingPriority feature. | [optional] 
+**Os** | Pointer to [**V1PodOS**](V1PodOS.md) |  | [optional] 
+**Overhead** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Overhead represents the resource overhead associated with running a pod for a given RuntimeClass. This field will be autopopulated at admission time by the RuntimeClass admission controller. If the RuntimeClass admission controller is enabled, overhead must not be set in Pod create requests. The RuntimeClass admission controller will reject Pod create requests which have the overhead already set. If RuntimeClass is configured and selected in the PodSpec, Overhead will be set to the value defined in the corresponding RuntimeClass, otherwise it will remain unset and treated as zero. More info: https://git.k8s.io/enhancements/keps/sig-node/688-pod-overhead/README.md | [optional] 
+**PreemptionPolicy** | Pointer to **string** | PreemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset. | [optional] 
 **Priority** | Pointer to **int32** | The priority value. Various system components use this field to find the priority of the pod. When Priority Admission Controller is enabled, it prevents users from setting this field. The admission controller populates this field from PriorityClassName. The higher the value, the higher the priority. | [optional] 
 **PriorityClassName** | Pointer to **string** | If specified, indicates the pod&#39;s priority. \&quot;system-node-critical\&quot; and \&quot;system-cluster-critical\&quot; are two special keywords which indicate the highest priorities with the former being the highest priority. Any other name must be defined by creating a PriorityClass object with that name. If not specified, the pod priority will be default or zero if there is no default. | [optional] 
-**ReadinessGates** | Pointer to [**[]V1PodReadinessGate**](V1PodReadinessGate.md) | If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \&quot;True\&quot; More info: https://git.k8s.io/enhancements/keps/sig-network/0007-pod-ready%2B%2B.md | [optional] 
-**RestartPolicy** | Pointer to **string** | Restart policy for all containers within the pod. One of Always, OnFailure, Never. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy | [optional] 
-**RuntimeClassName** | Pointer to **string** | RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/runtime-class.md This is a beta feature as of Kubernetes v1.14. | [optional] 
+**ReadinessGates** | Pointer to [**[]V1PodReadinessGate**](V1PodReadinessGate.md) | If specified, all readiness gates will be evaluated for pod readiness. A pod is ready when all its containers are ready AND all conditions specified in the readiness gates have status equal to \&quot;True\&quot; More info: https://git.k8s.io/enhancements/keps/sig-network/580-pod-readiness-gates | [optional] 
+**ResourceClaims** | Pointer to [**[]V1PodResourceClaim**](V1PodResourceClaim.md) | ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. | [optional] 
+**RestartPolicy** | Pointer to **string** | Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy | [optional] 
+**RuntimeClassName** | Pointer to **string** | RuntimeClassName refers to a RuntimeClass object in the node.k8s.io group, which should be used to run this pod.  If no RuntimeClass resource matches the named class, the pod will not be run. If unset or empty, the \&quot;legacy\&quot; RuntimeClass will be used, which is an implicit class with an empty definition that uses the default runtime handler. More info: https://git.k8s.io/enhancements/keps/sig-node/585-runtime-class | [optional] 
 **SchedulerName** | Pointer to **string** | If specified, the pod will be dispatched by specified scheduler. If not specified, the pod will be dispatched by default scheduler. | [optional] 
+**SchedulingGates** | Pointer to [**[]V1PodSchedulingGate**](V1PodSchedulingGate.md) | SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.  SchedulingGates can only be set at pod creation time, and be removed only afterwards.  This is a beta feature enabled by the PodSchedulingReadiness feature gate. | [optional] 
 **SecurityContext** | Pointer to [**V1PodSecurityContext**](V1PodSecurityContext.md) |  | [optional] 
 **ServiceAccount** | Pointer to **string** | DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead. | [optional] 
 **ServiceAccountName** | Pointer to **string** | ServiceAccountName is the name of the ServiceAccount to use to run this pod. More info: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/ | [optional] 
+**SetHostnameAsFQDN** | Pointer to **bool** | If true the pod&#39;s hostname will be configured as the pod&#39;s FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false. | [optional] 
 **ShareProcessNamespace** | Pointer to **bool** | Share a single process namespace between all of the containers in a pod. When this is set containers will be able to view and signal processes from other containers in the same pod, and the first process in each container will not be assigned PID 1. HostPID and ShareProcessNamespace cannot both be set. Optional: Default to false. | [optional] 
 **Subdomain** | Pointer to **string** | If specified, the fully qualified Pod hostname will be \&quot;&lt;hostname&gt;.&lt;subdomain&gt;.&lt;pod namespace&gt;.svc.&lt;cluster domain&gt;\&quot;. If not specified, the pod will not have a domainname at all. | [optional] 
-**TerminationGracePeriodSeconds** | Pointer to **int64** | Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds. | [optional] 
+**TerminationGracePeriodSeconds** | Pointer to **int64** | Optional duration in seconds the pod needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds. | [optional] 
 **Tolerations** | Pointer to [**[]V1Toleration**](V1Toleration.md) | If specified, the pod&#39;s tolerations. | [optional] 
-**TopologySpreadConstraints** | Pointer to [**[]V1TopologySpreadConstraint**](V1TopologySpreadConstraint.md) | TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. This field is only honored by clusters that enable the EvenPodsSpread feature. All topologySpreadConstraints are ANDed. | [optional] 
+**TopologySpreadConstraints** | Pointer to [**[]V1TopologySpreadConstraint**](V1TopologySpreadConstraint.md) | TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed. | [optional] 
 **Volumes** | Pointer to [**[]V1Volume**](V1Volume.md) | List of volumes that can be mounted by containers belonging to the pod. More info: https://kubernetes.io/docs/concepts/storage/volumes | [optional] 
 
 ## Methods
@@ -353,6 +358,31 @@ SetHostPID sets HostPID field to given value.
 
 HasHostPID returns a boolean if a field has been set.
 
+### GetHostUsers
+
+`func (o *V1PodSpec) GetHostUsers() bool`
+
+GetHostUsers returns the HostUsers field if non-nil, zero value otherwise.
+
+### GetHostUsersOk
+
+`func (o *V1PodSpec) GetHostUsersOk() (*bool, bool)`
+
+GetHostUsersOk returns a tuple with the HostUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostUsers
+
+`func (o *V1PodSpec) SetHostUsers(v bool)`
+
+SetHostUsers sets HostUsers field to given value.
+
+### HasHostUsers
+
+`func (o *V1PodSpec) HasHostUsers() bool`
+
+HasHostUsers returns a boolean if a field has been set.
+
 ### GetHostname
 
 `func (o *V1PodSpec) GetHostname() string`
@@ -477,6 +507,31 @@ SetNodeSelector sets NodeSelector field to given value.
 `func (o *V1PodSpec) HasNodeSelector() bool`
 
 HasNodeSelector returns a boolean if a field has been set.
+
+### GetOs
+
+`func (o *V1PodSpec) GetOs() V1PodOS`
+
+GetOs returns the Os field if non-nil, zero value otherwise.
+
+### GetOsOk
+
+`func (o *V1PodSpec) GetOsOk() (*V1PodOS, bool)`
+
+GetOsOk returns a tuple with the Os field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOs
+
+`func (o *V1PodSpec) SetOs(v V1PodOS)`
+
+SetOs sets Os field to given value.
+
+### HasOs
+
+`func (o *V1PodSpec) HasOs() bool`
+
+HasOs returns a boolean if a field has been set.
 
 ### GetOverhead
 
@@ -603,6 +658,31 @@ SetReadinessGates sets ReadinessGates field to given value.
 
 HasReadinessGates returns a boolean if a field has been set.
 
+### GetResourceClaims
+
+`func (o *V1PodSpec) GetResourceClaims() []V1PodResourceClaim`
+
+GetResourceClaims returns the ResourceClaims field if non-nil, zero value otherwise.
+
+### GetResourceClaimsOk
+
+`func (o *V1PodSpec) GetResourceClaimsOk() (*[]V1PodResourceClaim, bool)`
+
+GetResourceClaimsOk returns a tuple with the ResourceClaims field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResourceClaims
+
+`func (o *V1PodSpec) SetResourceClaims(v []V1PodResourceClaim)`
+
+SetResourceClaims sets ResourceClaims field to given value.
+
+### HasResourceClaims
+
+`func (o *V1PodSpec) HasResourceClaims() bool`
+
+HasResourceClaims returns a boolean if a field has been set.
+
 ### GetRestartPolicy
 
 `func (o *V1PodSpec) GetRestartPolicy() string`
@@ -678,6 +758,31 @@ SetSchedulerName sets SchedulerName field to given value.
 
 HasSchedulerName returns a boolean if a field has been set.
 
+### GetSchedulingGates
+
+`func (o *V1PodSpec) GetSchedulingGates() []V1PodSchedulingGate`
+
+GetSchedulingGates returns the SchedulingGates field if non-nil, zero value otherwise.
+
+### GetSchedulingGatesOk
+
+`func (o *V1PodSpec) GetSchedulingGatesOk() (*[]V1PodSchedulingGate, bool)`
+
+GetSchedulingGatesOk returns a tuple with the SchedulingGates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSchedulingGates
+
+`func (o *V1PodSpec) SetSchedulingGates(v []V1PodSchedulingGate)`
+
+SetSchedulingGates sets SchedulingGates field to given value.
+
+### HasSchedulingGates
+
+`func (o *V1PodSpec) HasSchedulingGates() bool`
+
+HasSchedulingGates returns a boolean if a field has been set.
+
 ### GetSecurityContext
 
 `func (o *V1PodSpec) GetSecurityContext() V1PodSecurityContext`
@@ -752,6 +857,31 @@ SetServiceAccountName sets ServiceAccountName field to given value.
 `func (o *V1PodSpec) HasServiceAccountName() bool`
 
 HasServiceAccountName returns a boolean if a field has been set.
+
+### GetSetHostnameAsFQDN
+
+`func (o *V1PodSpec) GetSetHostnameAsFQDN() bool`
+
+GetSetHostnameAsFQDN returns the SetHostnameAsFQDN field if non-nil, zero value otherwise.
+
+### GetSetHostnameAsFQDNOk
+
+`func (o *V1PodSpec) GetSetHostnameAsFQDNOk() (*bool, bool)`
+
+GetSetHostnameAsFQDNOk returns a tuple with the SetHostnameAsFQDN field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSetHostnameAsFQDN
+
+`func (o *V1PodSpec) SetSetHostnameAsFQDN(v bool)`
+
+SetSetHostnameAsFQDN sets SetHostnameAsFQDN field to given value.
+
+### HasSetHostnameAsFQDN
+
+`func (o *V1PodSpec) HasSetHostnameAsFQDN() bool`
+
+HasSetHostnameAsFQDN returns a boolean if a field has been set.
 
 ### GetShareProcessNamespace
 

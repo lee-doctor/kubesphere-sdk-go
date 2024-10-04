@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**MinReadySeconds** | Pointer to **int32** | Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) | [optional] 
+**Ordinals** | Pointer to [**V1StatefulSetOrdinals**](V1StatefulSetOrdinals.md) |  | [optional] 
+**PersistentVolumeClaimRetentionPolicy** | Pointer to [**V1StatefulSetPersistentVolumeClaimRetentionPolicy**](V1StatefulSetPersistentVolumeClaimRetentionPolicy.md) |  | [optional] 
 **PodManagementPolicy** | Pointer to **string** | podManagementPolicy controls how pods are created during initial scale up, when replacing pods on nodes, or when scaling down. The default policy is &#x60;OrderedReady&#x60;, where pods are created in increasing order (pod-0, then pod-1, etc) and the controller will wait until each pod is ready before continuing. When scaling down, the pods are removed in the opposite order. The alternative policy is &#x60;Parallel&#x60; which will create pods in parallel to match the desired scale without waiting, and on scale down will delete all pods at once. | [optional] 
 **Replicas** | Pointer to **int32** | replicas is the desired number of replicas of the given Template. These are replicas in the sense that they are instantiations of the same Template, but individual replicas also have a consistent identity. If unspecified, defaults to 1. | [optional] 
 **RevisionHistoryLimit** | Pointer to **int32** | revisionHistoryLimit is the maximum number of revisions that will be maintained in the StatefulSet&#39;s revision history. The revision history consists of all revisions not represented by a currently applied StatefulSetSpec version. The default value is 10. | [optional] 
@@ -31,6 +34,81 @@ will change when the set of required properties is changed
 NewV1StatefulSetSpecWithDefaults instantiates a new V1StatefulSetSpec object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetMinReadySeconds
+
+`func (o *V1StatefulSetSpec) GetMinReadySeconds() int32`
+
+GetMinReadySeconds returns the MinReadySeconds field if non-nil, zero value otherwise.
+
+### GetMinReadySecondsOk
+
+`func (o *V1StatefulSetSpec) GetMinReadySecondsOk() (*int32, bool)`
+
+GetMinReadySecondsOk returns a tuple with the MinReadySeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinReadySeconds
+
+`func (o *V1StatefulSetSpec) SetMinReadySeconds(v int32)`
+
+SetMinReadySeconds sets MinReadySeconds field to given value.
+
+### HasMinReadySeconds
+
+`func (o *V1StatefulSetSpec) HasMinReadySeconds() bool`
+
+HasMinReadySeconds returns a boolean if a field has been set.
+
+### GetOrdinals
+
+`func (o *V1StatefulSetSpec) GetOrdinals() V1StatefulSetOrdinals`
+
+GetOrdinals returns the Ordinals field if non-nil, zero value otherwise.
+
+### GetOrdinalsOk
+
+`func (o *V1StatefulSetSpec) GetOrdinalsOk() (*V1StatefulSetOrdinals, bool)`
+
+GetOrdinalsOk returns a tuple with the Ordinals field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOrdinals
+
+`func (o *V1StatefulSetSpec) SetOrdinals(v V1StatefulSetOrdinals)`
+
+SetOrdinals sets Ordinals field to given value.
+
+### HasOrdinals
+
+`func (o *V1StatefulSetSpec) HasOrdinals() bool`
+
+HasOrdinals returns a boolean if a field has been set.
+
+### GetPersistentVolumeClaimRetentionPolicy
+
+`func (o *V1StatefulSetSpec) GetPersistentVolumeClaimRetentionPolicy() V1StatefulSetPersistentVolumeClaimRetentionPolicy`
+
+GetPersistentVolumeClaimRetentionPolicy returns the PersistentVolumeClaimRetentionPolicy field if non-nil, zero value otherwise.
+
+### GetPersistentVolumeClaimRetentionPolicyOk
+
+`func (o *V1StatefulSetSpec) GetPersistentVolumeClaimRetentionPolicyOk() (*V1StatefulSetPersistentVolumeClaimRetentionPolicy, bool)`
+
+GetPersistentVolumeClaimRetentionPolicyOk returns a tuple with the PersistentVolumeClaimRetentionPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPersistentVolumeClaimRetentionPolicy
+
+`func (o *V1StatefulSetSpec) SetPersistentVolumeClaimRetentionPolicy(v V1StatefulSetPersistentVolumeClaimRetentionPolicy)`
+
+SetPersistentVolumeClaimRetentionPolicy sets PersistentVolumeClaimRetentionPolicy field to given value.
+
+### HasPersistentVolumeClaimRetentionPolicy
+
+`func (o *V1StatefulSetSpec) HasPersistentVolumeClaimRetentionPolicy() bool`
+
+HasPersistentVolumeClaimRetentionPolicy returns a boolean if a field has been set.
 
 ### GetPodManagementPolicy
 

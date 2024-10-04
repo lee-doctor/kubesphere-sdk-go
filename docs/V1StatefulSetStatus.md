@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AvailableReplicas** | **int32** | Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset. | 
 **CollisionCount** | Pointer to **int32** | collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision. | [optional] 
 **Conditions** | Pointer to [**[]V1StatefulSetCondition**](V1StatefulSetCondition.md) | Represents the latest available observations of a statefulset&#39;s current state. | [optional] 
 **CurrentReplicas** | Pointer to **int32** | currentReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision. | [optional] 
 **CurrentRevision** | Pointer to **string** | currentRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [0,currentReplicas). | [optional] 
 **ObservedGeneration** | Pointer to **int64** | observedGeneration is the most recent generation observed for this StatefulSet. It corresponds to the StatefulSet&#39;s generation, which is updated on mutation by the API Server. | [optional] 
-**ReadyReplicas** | Pointer to **int32** | readyReplicas is the number of Pods created by the StatefulSet controller that have a Ready Condition. | [optional] 
+**ReadyReplicas** | Pointer to **int32** | readyReplicas is the number of pods created for this StatefulSet with a Ready Condition. | [optional] 
 **Replicas** | **int32** | replicas is the number of Pods created by the StatefulSet controller. | 
 **UpdateRevision** | Pointer to **string** | updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas) | [optional] 
 **UpdatedReplicas** | Pointer to **int32** | updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision. | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewV1StatefulSetStatus
 
-`func NewV1StatefulSetStatus(replicas int32, ) *V1StatefulSetStatus`
+`func NewV1StatefulSetStatus(availableReplicas int32, replicas int32, ) *V1StatefulSetStatus`
 
 NewV1StatefulSetStatus instantiates a new V1StatefulSetStatus object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +33,26 @@ will change when the set of required properties is changed
 NewV1StatefulSetStatusWithDefaults instantiates a new V1StatefulSetStatus object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAvailableReplicas
+
+`func (o *V1StatefulSetStatus) GetAvailableReplicas() int32`
+
+GetAvailableReplicas returns the AvailableReplicas field if non-nil, zero value otherwise.
+
+### GetAvailableReplicasOk
+
+`func (o *V1StatefulSetStatus) GetAvailableReplicasOk() (*int32, bool)`
+
+GetAvailableReplicasOk returns a tuple with the AvailableReplicas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvailableReplicas
+
+`func (o *V1StatefulSetStatus) SetAvailableReplicas(v int32)`
+
+SetAvailableReplicas sets AvailableReplicas field to given value.
+
 
 ### GetCollisionCount
 

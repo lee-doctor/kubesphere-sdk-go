@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Driver** | **string** | Driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster. | 
-**FsType** | Pointer to **string** | Filesystem type to mount. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply. | [optional] 
+**Driver** | **string** | driver is the name of the CSI driver that handles this volume. Consult with your admin for the correct name as registered in the cluster. | 
+**FsType** | Pointer to **string** | fsType to mount. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply. | [optional] 
 **NodePublishSecretRef** | Pointer to [**V1LocalObjectReference**](V1LocalObjectReference.md) |  | [optional] 
-**ReadOnly** | Pointer to **bool** | Specifies a read-only configuration for the volume. Defaults to false (read/write). | [optional] 
-**VolumeAttributes** | Pointer to **map[string]string** | VolumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver&#39;s documentation for supported values. | [optional] 
+**ReadOnly** | Pointer to **bool** | readOnly specifies a read-only configuration for the volume. Defaults to false (read/write). | [optional] 
+**VolumeAttributes** | Pointer to **map[string]string** | volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver&#39;s documentation for supported values. | [optional] 
 
 ## Methods
 

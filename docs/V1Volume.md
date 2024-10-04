@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Csi** | Pointer to [**V1CSIVolumeSource**](V1CSIVolumeSource.md) |  | [optional] 
 **DownwardAPI** | Pointer to [**V1DownwardAPIVolumeSource**](V1DownwardAPIVolumeSource.md) |  | [optional] 
 **EmptyDir** | Pointer to [**V1EmptyDirVolumeSource**](V1EmptyDirVolumeSource.md) |  | [optional] 
+**Ephemeral** | Pointer to [**V1EphemeralVolumeSource**](V1EphemeralVolumeSource.md) |  | [optional] 
 **Fc** | Pointer to [**V1FCVolumeSource**](V1FCVolumeSource.md) |  | [optional] 
 **FlexVolume** | Pointer to [**V1FlexVolumeSource**](V1FlexVolumeSource.md) |  | [optional] 
 **Flocker** | Pointer to [**V1FlockerVolumeSource**](V1FlockerVolumeSource.md) |  | [optional] 
@@ -21,7 +22,7 @@ Name | Type | Description | Notes
 **Glusterfs** | Pointer to [**V1GlusterfsVolumeSource**](V1GlusterfsVolumeSource.md) |  | [optional] 
 **HostPath** | Pointer to [**V1HostPathVolumeSource**](V1HostPathVolumeSource.md) |  | [optional] 
 **Iscsi** | Pointer to [**V1ISCSIVolumeSource**](V1ISCSIVolumeSource.md) |  | [optional] 
-**Name** | **string** | Volume&#39;s name. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names | 
+**Name** | **string** | name of the volume. Must be a DNS_LABEL and unique within the pod. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names | 
 **Nfs** | Pointer to [**V1NFSVolumeSource**](V1NFSVolumeSource.md) |  | [optional] 
 **PersistentVolumeClaim** | Pointer to [**V1PersistentVolumeClaimVolumeSource**](V1PersistentVolumeClaimVolumeSource.md) |  | [optional] 
 **PhotonPersistentDisk** | Pointer to [**V1PhotonPersistentDiskVolumeSource**](V1PhotonPersistentDiskVolumeSource.md) |  | [optional] 
@@ -277,6 +278,31 @@ SetEmptyDir sets EmptyDir field to given value.
 `func (o *V1Volume) HasEmptyDir() bool`
 
 HasEmptyDir returns a boolean if a field has been set.
+
+### GetEphemeral
+
+`func (o *V1Volume) GetEphemeral() V1EphemeralVolumeSource`
+
+GetEphemeral returns the Ephemeral field if non-nil, zero value otherwise.
+
+### GetEphemeralOk
+
+`func (o *V1Volume) GetEphemeralOk() (*V1EphemeralVolumeSource, bool)`
+
+GetEphemeralOk returns a tuple with the Ephemeral field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEphemeral
+
+`func (o *V1Volume) SetEphemeral(v V1EphemeralVolumeSource)`
+
+SetEphemeral sets Ephemeral field to given value.
+
+### HasEphemeral
+
+`func (o *V1Volume) HasEphemeral() bool`
+
+HasEphemeral returns a boolean if a field has been set.
 
 ### GetFc
 

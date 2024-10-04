@@ -4,19 +4,25 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Authorize**](AuthenticationAPI.md#Authorize) | **Get** /oauth/authorize | All requests for OAuth tokens involve a request to /oauth/authorize.
-[**Login**](AuthenticationAPI.md#Login) | **Post** /kapis/iam.kubesphere.io/v1alpha2/login | KubeSphere APIs support token-based authentication via the Authtoken request header. The POST Login API is used to retrieve the authentication token. After the authentication token is obtained, it must be inserted into the Authtoken header for all requests.
-[**OauthCallBack**](AuthenticationAPI.md#OauthCallBack) | **Get** /oauth/callback/{callback} | OAuth callback API, the path param callback is config by identity provider
-[**Token**](AuthenticationAPI.md#Token) | **Post** /oauth/token | The resource owner password credentials grant type is suitable in cases where the resource owner has a trust relationship with the client, such as the device operating system or a highly privileged application.
-[**TokenReview**](AuthenticationAPI.md#TokenReview) | **Post** /oauth/authenticate | TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
+[**Logout**](AuthenticationAPI.md#Logout) | **Get** /oauth/logout | Logout
+[**OauthCallback**](AuthenticationAPI.md#OauthCallback) | **Get** /oauth/callback/{callback} | OAuth2 callback
+[**OpenidAuthorizeGet**](AuthenticationAPI.md#OpenidAuthorizeGet) | **Get** /oauth/authorize | Authorization endpoint
+[**OpenidAuthorizePost**](AuthenticationAPI.md#OpenidAuthorizePost) | **Post** /oauth/authorize | Authorization endpoint
+[**OpenidConfiguration**](AuthenticationAPI.md#OpenidConfiguration) | **Get** /.well-known/openid-configuration | OpenID provider configuration information
+[**OpenidKeys**](AuthenticationAPI.md#OpenidKeys) | **Get** /oauth/keys | JSON Web Key Set
+[**OpenidToken**](AuthenticationAPI.md#OpenidToken) | **Post** /oauth/token | Token endpoint
+[**OpenidUserinfo**](AuthenticationAPI.md#OpenidUserinfo) | **Get** /oauth/userinfo | User info endpoint
+[**TokenReview**](AuthenticationAPI.md#TokenReview) | **Post** /oauth/authenticate | Token review
 
 
 
-## Authorize
+## Logout
 
-> Authorize(ctx).ResponseType(responseType).ClientId(clientId).RedirectUri(redirectUri).Execute()
+> string Logout(ctx).IdTokenHint(idTokenHint).PostLogoutRedirectUri(postLogoutRedirectUri).State(state).Execute()
 
-All requests for OAuth tokens involve a request to /oauth/authorize.
+Logout
+
+
 
 ### Example
 
@@ -31,17 +37,19 @@ import (
 )
 
 func main() {
-	responseType := "responseType_example" // string | The value MUST be one of \"code\" for requesting an authorization code as described by [RFC6749] Section 4.1.1, \"token\" for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2.
-	clientId := "clientId_example" // string | The client identifier issued to the client during the registration process described by [RFC6749] Section 2.2.
-	redirectUri := "redirectUri_example" // string | After completing its interaction with the resource owner, the authorization server directs the resource owner's user-agent back to the client.The redirection endpoint URI MUST be an absolute URI as defined by [RFC3986] Section 4.3. (optional)
+	idTokenHint := "idTokenHint_example" // string | ID Token previously issued by the OP to the RP passed to the Logout Endpoint as a hint about the End-User's current authenticated session with the Client. This is used as an indication of the identity of the End-User that the RP is requesting be logged out by the OP. (optional)
+	postLogoutRedirectUri := "postLogoutRedirectUri_example" // string | URL to which the RP is requesting that the End-User's User Agent be redirected after a logout has been performed.  (optional)
+	state := "state_example" // string | Opaque value used by the RP to maintain state between the logout request and the callback to the endpoint specified by the post_logout_redirect_uri parameter. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.AuthenticationAPI.Authorize(context.Background()).ResponseType(responseType).ClientId(clientId).RedirectUri(redirectUri).Execute()
+	resp, r, err := apiClient.AuthenticationAPI.Logout(context.Background()).IdTokenHint(idTokenHint).PostLogoutRedirectUri(postLogoutRedirectUri).State(state).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Authorize``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Logout``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `Logout`: string
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.Logout`: %v\n", resp)
 }
 ```
 
@@ -51,22 +59,22 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiAuthorizeRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiLogoutRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **responseType** | **string** | The value MUST be one of \&quot;code\&quot; for requesting an authorization code as described by [RFC6749] Section 4.1.1, \&quot;token\&quot; for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2. | 
- **clientId** | **string** | The client identifier issued to the client during the registration process described by [RFC6749] Section 2.2. | 
- **redirectUri** | **string** | After completing its interaction with the resource owner, the authorization server directs the resource owner&#39;s user-agent back to the client.The redirection endpoint URI MUST be an absolute URI as defined by [RFC3986] Section 4.3. | 
+ **idTokenHint** | **string** | ID Token previously issued by the OP to the RP passed to the Logout Endpoint as a hint about the End-User&#39;s current authenticated session with the Client. This is used as an indication of the identity of the End-User that the RP is requesting be logged out by the OP. | 
+ **postLogoutRedirectUri** | **string** | URL to which the RP is requesting that the End-User&#39;s User Agent be redirected after a logout has been performed.  | 
+ **state** | **string** | Opaque value used by the RP to maintain state between the logout request and the callback to the endpoint specified by the post_logout_redirect_uri parameter. | 
 
 ### Return type
 
- (empty response body)
+**string**
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 
@@ -78,75 +86,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Login
+## OauthCallback
 
-> OauthToken Login(ctx).Body(body).Execute()
+> OauthToken OauthCallback(ctx, callback).AccessToken(accessToken).TokenType(tokenType).State(state).ExpiresIn(expiresIn).Scope(scope).Execute()
 
-KubeSphere APIs support token-based authentication via the Authtoken request header. The POST Login API is used to retrieve the authentication token. After the authentication token is obtained, it must be inserted into the Authtoken header for all requests.
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
-)
-
-func main() {
-	body := *openapiclient.NewOauthLoginRequest("Password_example", "Username_example") // OauthLoginRequest | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuthenticationAPI.Login(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Login``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `Login`: OauthToken
-	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.Login`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiLoginRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**OauthLoginRequest**](OauthLoginRequest.md) |  | 
-
-### Return type
-
-[**OauthToken**](OauthToken.md)
-
-### Authorization
-
-[jwt](../README.md#jwt)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## OauthCallBack
-
-> OauthToken OauthCallBack(ctx, callback).AccessToken(accessToken).TokenType(tokenType).State(state).ExpiresIn(expiresIn).Scope(scope).Execute()
-
-OAuth callback API, the path param callback is config by identity provider
+OAuth2 callback
 
 ### Example
 
@@ -161,7 +105,7 @@ import (
 )
 
 func main() {
-	callback := "callback_example" // string | callback name.
+	callback := "callback_example" // string | The identity provider name.
 	accessToken := "accessToken_example" // string | The access token issued by the authorization server.
 	tokenType := "tokenType_example" // string | The type of the token issued as described in [RFC6479] Section 7.1. Value is case insensitive.
 	state := "state_example" // string | if the \"state\" parameter was present in the client authorization request.The exact value received from the client.
@@ -170,13 +114,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuthenticationAPI.OauthCallBack(context.Background(), callback).AccessToken(accessToken).TokenType(tokenType).State(state).ExpiresIn(expiresIn).Scope(scope).Execute()
+	resp, r, err := apiClient.AuthenticationAPI.OauthCallback(context.Background(), callback).AccessToken(accessToken).TokenType(tokenType).State(state).ExpiresIn(expiresIn).Scope(scope).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OauthCallBack``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OauthCallback``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `OauthCallBack`: OauthToken
-	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OauthCallBack`: %v\n", resp)
+	// response from `OauthCallback`: OauthToken
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OauthCallback`: %v\n", resp)
 }
 ```
 
@@ -186,11 +130,11 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**callback** | **string** | callback name. | 
+**callback** | **string** | The identity provider name. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiOauthCallBackRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiOauthCallbackRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -208,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 
@@ -220,11 +164,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## Token
+## OpenidAuthorizeGet
 
-> OauthToken Token(ctx).GrantType(grantType).Username(username).Password(password).Execute()
+> OpenidAuthorizeGet(ctx).ResponseType(responseType).ClientId(clientId).RedirectUri(redirectUri).Scope(scope).State(state).Execute()
 
-The resource owner password credentials grant type is suitable in cases where the resource owner has a trust relationship with the client, such as the device operating system or a highly privileged application.
+Authorization endpoint
+
+
 
 ### Example
 
@@ -239,19 +185,19 @@ import (
 )
 
 func main() {
-	grantType := "grantType_example" // string | Value MUST be set to \\\"password\\\".
-	username := "username_example" // string | The resource owner username.
-	password := "password_example" // string | The resource owner password.
+	responseType := "responseType_example" // string | The value MUST be one of \"code\" for requesting an authorization code as described by [RFC6749] Section 4.1.1, \"token\" for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2.
+	clientId := "clientId_example" // string | OAuth 2.0 Client Identifier valid at the Authorization Server.
+	redirectUri := "redirectUri_example" // string | Redirection URI to which the response will be sent. This URI MUST exactly match one of the Redirection URI values for the Client pre-registered at the OpenID Provider.
+	scope := "scope_example" // string | OpenID Connect requests MUST contain the openid scope value. If the openid scope value is not present, the behavior is entirely unspecified. (optional)
+	state := "state_example" // string | Opaque value used to maintain state between the request and the callback. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AuthenticationAPI.Token(context.Background()).GrantType(grantType).Username(username).Password(password).Execute()
+	r, err := apiClient.AuthenticationAPI.OpenidAuthorizeGet(context.Background()).ResponseType(responseType).ClientId(clientId).RedirectUri(redirectUri).Scope(scope).State(state).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.Token``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidAuthorizeGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `Token`: OauthToken
-	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.Token`: %v\n", resp)
 }
 ```
 
@@ -261,14 +207,286 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiTokenRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiOpenidAuthorizeGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **grantType** | **string** | Value MUST be set to \\\&quot;password\\\&quot;. | 
+ **responseType** | **string** | The value MUST be one of \&quot;code\&quot; for requesting an authorization code as described by [RFC6749] Section 4.1.1, \&quot;token\&quot; for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2. | 
+ **clientId** | **string** | OAuth 2.0 Client Identifier valid at the Authorization Server. | 
+ **redirectUri** | **string** | Redirection URI to which the response will be sent. This URI MUST exactly match one of the Redirection URI values for the Client pre-registered at the OpenID Provider. | 
+ **scope** | **string** | OpenID Connect requests MUST contain the openid scope value. If the openid scope value is not present, the behavior is entirely unspecified. | 
+ **state** | **string** | Opaque value used to maintain state between the request and the callback. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OpenidAuthorizePost
+
+> OpenidAuthorizePost(ctx).ClientId(clientId).RedirectUri(redirectUri).ResponseType(responseType).Scope(scope).State(state).Execute()
+
+Authorization endpoint
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+	clientId := "clientId_example" // string | OAuth 2.0 Client Identifier valid at the Authorization Server.
+	redirectUri := "redirectUri_example" // string | Redirection URI to which the response will be sent. This URI MUST exactly match one of the Redirection URI values for the Client pre-registered at the OpenID Provider.
+	responseType := "responseType_example" // string | The value MUST be one of \\\"code\\\" for requesting an authorization code as described by [RFC6749] Section 4.1.1, \\\"token\\\" for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2. (optional)
+	scope := "scope_example" // string | OpenID Connect requests MUST contain the openid scope value. If the openid scope value is not present, the behavior is entirely unspecified. (optional)
+	state := "state_example" // string | Opaque value used to maintain state between the request and the callback. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.AuthenticationAPI.OpenidAuthorizePost(context.Background()).ClientId(clientId).RedirectUri(redirectUri).ResponseType(responseType).Scope(scope).State(state).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidAuthorizePost``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOpenidAuthorizePostRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientId** | **string** | OAuth 2.0 Client Identifier valid at the Authorization Server. | 
+ **redirectUri** | **string** | Redirection URI to which the response will be sent. This URI MUST exactly match one of the Redirection URI values for the Client pre-registered at the OpenID Provider. | 
+ **responseType** | **string** | The value MUST be one of \\\&quot;code\\\&quot; for requesting an authorization code as described by [RFC6749] Section 4.1.1, \\\&quot;token\\\&quot; for requesting an access token (implicit grant) as described by [RFC6749] Section 4.2.2. | 
+ **scope** | **string** | OpenID Connect requests MUST contain the openid scope value. If the openid scope value is not present, the behavior is entirely unspecified. | 
+ **state** | **string** | Opaque value used to maintain state between the request and the callback. | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: application/x-www-form-urlencoded
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OpenidConfiguration
+
+> OauthProviderMetadata OpenidConfiguration(ctx).Execute()
+
+OpenID provider configuration information
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthenticationAPI.OpenidConfiguration(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidConfiguration``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OpenidConfiguration`: OauthProviderMetadata
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OpenidConfiguration`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOpenidConfigurationRequest struct via the builder pattern
+
+
+### Return type
+
+[**OauthProviderMetadata**](OauthProviderMetadata.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OpenidKeys
+
+> JoseJSONWebKeySet OpenidKeys(ctx).Execute()
+
+JSON Web Key Set
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthenticationAPI.OpenidKeys(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidKeys``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OpenidKeys`: JoseJSONWebKeySet
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OpenidKeys`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOpenidKeysRequest struct via the builder pattern
+
+
+### Return type
+
+[**JoseJSONWebKeySet**](JoseJSONWebKeySet.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## OpenidToken
+
+> OauthToken OpenidToken(ctx).GrantType(grantType).ClientId(clientId).ClientSecret(clientSecret).Username(username).Password(password).Code(code).Execute()
+
+Token endpoint
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+	grantType := "grantType_example" // string | OAuth defines four grant types: authorization code, implicit, resource owner password credentials, and client credentials.
+	clientId := "clientId_example" // string | Valid client credential.
+	clientSecret := "clientSecret_example" // string | Valid client credential.
+	username := "username_example" // string | The resource owner username. (optional)
+	password := "password_example" // string | The resource owner password. (optional)
+	code := "code_example" // string | Valid authorization code. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthenticationAPI.OpenidToken(context.Background()).GrantType(grantType).ClientId(clientId).ClientSecret(clientSecret).Username(username).Password(password).Code(code).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidToken``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OpenidToken`: OauthToken
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OpenidToken`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOpenidTokenRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **grantType** | **string** | OAuth defines four grant types: authorization code, implicit, resource owner password credentials, and client credentials. | 
+ **clientId** | **string** | Valid client credential. | 
+ **clientSecret** | **string** | Valid client credential. | 
  **username** | **string** | The resource owner username. | 
  **password** | **string** | The resource owner password. | 
+ **code** | **string** | Valid authorization code. | 
 
 ### Return type
 
@@ -276,7 +494,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 
@@ -288,11 +506,74 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## OpenidUserinfo
+
+> TokenClaims OpenidUserinfo(ctx).Execute()
+
+User info endpoint
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AuthenticationAPI.OpenidUserinfo(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AuthenticationAPI.OpenidUserinfo``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `OpenidUserinfo`: TokenClaims
+	fmt.Fprintf(os.Stdout, "Response from `AuthenticationAPI.OpenidUserinfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiOpenidUserinfoRequest struct via the builder pattern
+
+
+### Return type
+
+[**TokenClaims**](TokenClaims.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## TokenReview
 
 > OauthTokenReview TokenReview(ctx).Body(body).Execute()
 
-TokenReview attempts to authenticate a token to a known user. Note: TokenReview requests may be cached by the webhook token authenticator plugin in the kube-apiserver.
+Token review
+
+
 
 ### Example
 
@@ -340,7 +621,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 

@@ -4,17 +4,19 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**HandleClusterGetNamespacedAbnormalWorkloads**](ClusterResourcesAPI.md#HandleClusterGetNamespacedAbnormalWorkloads) | **Get** /kapis/resources.kubesphere.io/v1alpha2/abnormalworkloads | get abnormal workloads&#39; count of whole cluster
-[**HandleGetClusterQuotas**](ClusterResourcesAPI.md#HandleGetClusterQuotas) | **Get** /kapis/resources.kubesphere.io/v1alpha2/quotas | get whole cluster&#39;s resource usage
-[**HandleListResources**](ClusterResourcesAPI.md#HandleListResources) | **Get** /kapis/resources.kubesphere.io/v1alpha2/{resources} | Cluster level resources
+[**GetClusterAbnormalWorkloads**](ClusterResourcesAPI.md#GetClusterAbnormalWorkloads) | **Get** /kapis/resources.kubesphere.io/v1alpha2/abnormalworkloads | Get abnormal workloads
+[**GetClusterOverview**](ClusterResourcesAPI.md#GetClusterOverview) | **Get** /kapis/resources.kubesphere.io/v1alpha3/metrics | Cluster summary
+[**GetClusterQuotas**](ClusterResourcesAPI.md#GetClusterQuotas) | **Get** /kapis/resources.kubesphere.io/v1alpha2/quotas | Get whole cluster&#39;s resource usage
+[**GetClusterResource**](ClusterResourcesAPI.md#GetClusterResource) | **Get** /kapis/resources.kubesphere.io/v1alpha3/{resources}/{name} | Get cluster scope resource
+[**ListClusterResources**](ClusterResourcesAPI.md#ListClusterResources) | **Get** /kapis/resources.kubesphere.io/v1alpha3/{resources} | Cluster level resources
 
 
 
-## HandleClusterGetNamespacedAbnormalWorkloads
+## GetClusterAbnormalWorkloads
 
-> ApiWorkloads HandleClusterGetNamespacedAbnormalWorkloads(ctx).Execute()
+> ApiWorkloads GetClusterAbnormalWorkloads(ctx).Execute()
 
-get abnormal workloads' count of whole cluster
+Get abnormal workloads
 
 ### Example
 
@@ -32,13 +34,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ClusterResourcesAPI.HandleClusterGetNamespacedAbnormalWorkloads(context.Background()).Execute()
+	resp, r, err := apiClient.ClusterResourcesAPI.GetClusterAbnormalWorkloads(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.HandleClusterGetNamespacedAbnormalWorkloads``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.GetClusterAbnormalWorkloads``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleClusterGetNamespacedAbnormalWorkloads`: ApiWorkloads
-	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.HandleClusterGetNamespacedAbnormalWorkloads`: %v\n", resp)
+	// response from `GetClusterAbnormalWorkloads`: ApiWorkloads
+	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.GetClusterAbnormalWorkloads`: %v\n", resp)
 }
 ```
 
@@ -48,7 +50,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHandleClusterGetNamespacedAbnormalWorkloadsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetClusterAbnormalWorkloadsRequest struct via the builder pattern
 
 
 ### Return type
@@ -57,7 +59,7 @@ Other parameters are passed through a pointer to a apiHandleClusterGetNamespaced
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 
@@ -69,11 +71,11 @@ Other parameters are passed through a pointer to a apiHandleClusterGetNamespaced
 [[Back to README]](../README.md)
 
 
-## HandleGetClusterQuotas
+## GetClusterOverview
 
-> ApiResourceQuota HandleGetClusterQuotas(ctx).Execute()
+> OverviewMetricResults GetClusterOverview(ctx).Execute()
 
-get whole cluster's resource usage
+Cluster summary
 
 ### Example
 
@@ -91,13 +93,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ClusterResourcesAPI.HandleGetClusterQuotas(context.Background()).Execute()
+	resp, r, err := apiClient.ClusterResourcesAPI.GetClusterOverview(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.HandleGetClusterQuotas``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.GetClusterOverview``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleGetClusterQuotas`: ApiResourceQuota
-	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.HandleGetClusterQuotas`: %v\n", resp)
+	// response from `GetClusterOverview`: OverviewMetricResults
+	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.GetClusterOverview`: %v\n", resp)
 }
 ```
 
@@ -107,16 +109,16 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHandleGetClusterQuotasRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetClusterOverviewRequest struct via the builder pattern
 
 
 ### Return type
 
-[**ApiResourceQuota**](ApiResourceQuota.md)
+[**OverviewMetricResults**](OverviewMetricResults.md)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 
@@ -128,9 +130,137 @@ Other parameters are passed through a pointer to a apiHandleGetClusterQuotasRequ
 [[Back to README]](../README.md)
 
 
-## HandleListResources
+## GetClusterQuotas
 
-> ModelsPageableResponse HandleListResources(ctx, resources).Conditions(conditions).Paging(paging).Reverse(reverse).OrderBy(orderBy).Execute()
+> ApiResourceQuota GetClusterQuotas(ctx).Execute()
+
+Get whole cluster's resource usage
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.ClusterResourcesAPI.GetClusterQuotas(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.GetClusterQuotas``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `GetClusterQuotas`: ApiResourceQuota
+	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.GetClusterQuotas`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetClusterQuotasRequest struct via the builder pattern
+
+
+### Return type
+
+[**ApiResourceQuota**](ApiResourceQuota.md)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetClusterResource
+
+> GetClusterResource(ctx, resources, name).Execute()
+
+Get cluster scope resource
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
+)
+
+func main() {
+	resources := "resources_example" // string | cluster level resource type, e.g. pods,jobs,configmaps,services.
+	name := "name_example" // string | the name of the clustered resources
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.ClusterResourcesAPI.GetClusterResource(context.Background(), resources, name).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.GetClusterResource``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**resources** | **string** | cluster level resource type, e.g. pods,jobs,configmaps,services. | 
+**name** | **string** | the name of the clustered resources | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetClusterResourceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListClusterResources
+
+> ApiListResult ListClusterResources(ctx, resources).Name(name).Page(page).Limit(limit).Ascending(ascending).SortBy(sortBy).Execute()
 
 Cluster level resources
 
@@ -147,21 +277,22 @@ import (
 )
 
 func main() {
-	resources := "resources_example" // string | cluster level resource type, e.g. nodes,workspaces,storageclasses,clusterrole.
-	conditions := "conditions_example" // string | query conditions, connect multiple conditions with commas, equal symbol for exact query, wave symbol for fuzzy query e.g. name~a (optional)
-	paging := "paging_example" // string | paging query, e.g. limit=100,page=1 (optional) (default to "limit=10,page=1")
-	reverse := "reverse_example" // string | sort parameters, e.g. reverse=true (optional)
-	orderBy := "orderBy_example" // string | sort parameters, e.g. orderBy=createTime (optional)
+	resources := "resources_example" // string | cluster level resource type, e.g. pods,jobs,configmaps,services.
+	name := "name_example" // string | name used to do filtering (optional)
+	page := "page_example" // string | page (optional) (default to "page=1")
+	limit := "limit_example" // string | limit (optional)
+	ascending := "ascending_example" // string | sort parameters, e.g. reverse=true (optional) (default to "ascending=false")
+	sortBy := "sortBy_example" // string | sort parameters, e.g. orderBy=createTime (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ClusterResourcesAPI.HandleListResources(context.Background(), resources).Conditions(conditions).Paging(paging).Reverse(reverse).OrderBy(orderBy).Execute()
+	resp, r, err := apiClient.ClusterResourcesAPI.ListClusterResources(context.Background(), resources).Name(name).Page(page).Limit(limit).Ascending(ascending).SortBy(sortBy).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.HandleListResources``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `ClusterResourcesAPI.ListClusterResources``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `HandleListResources`: ModelsPageableResponse
-	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.HandleListResources`: %v\n", resp)
+	// response from `ListClusterResources`: ApiListResult
+	fmt.Fprintf(os.Stdout, "Response from `ClusterResourcesAPI.ListClusterResources`: %v\n", resp)
 }
 ```
 
@@ -171,28 +302,29 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**resources** | **string** | cluster level resource type, e.g. nodes,workspaces,storageclasses,clusterrole. | 
+**resources** | **string** | cluster level resource type, e.g. pods,jobs,configmaps,services. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiHandleListResourcesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListClusterResourcesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **conditions** | **string** | query conditions, connect multiple conditions with commas, equal symbol for exact query, wave symbol for fuzzy query e.g. name~a | 
- **paging** | **string** | paging query, e.g. limit&#x3D;100,page&#x3D;1 | [default to &quot;limit&#x3D;10,page&#x3D;1&quot;]
- **reverse** | **string** | sort parameters, e.g. reverse&#x3D;true | 
- **orderBy** | **string** | sort parameters, e.g. orderBy&#x3D;createTime | 
+ **name** | **string** | name used to do filtering | 
+ **page** | **string** | page | [default to &quot;page&#x3D;1&quot;]
+ **limit** | **string** | limit | 
+ **ascending** | **string** | sort parameters, e.g. reverse&#x3D;true | [default to &quot;ascending&#x3D;false&quot;]
+ **sortBy** | **string** | sort parameters, e.g. orderBy&#x3D;createTime | 
 
 ### Return type
 
-[**ModelsPageableResponse**](ModelsPageableResponse.md)
+[**ApiListResult**](ApiListResult.md)
 
 ### Authorization
 
-[jwt](../README.md#jwt)
+[BearerToken](../README.md#BearerToken)
 
 ### HTTP request headers
 

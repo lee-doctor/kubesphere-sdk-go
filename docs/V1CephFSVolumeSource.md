@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Monitors** | **[]string** | Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | 
-**Path** | Pointer to **string** | Optional: Used as the mounted root, rather than the full Ceph tree, default is / | [optional] 
-**ReadOnly** | Pointer to **bool** | Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
-**SecretFile** | Pointer to **string** | Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
+**Monitors** | **[]string** | monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | 
+**Path** | Pointer to **string** | path is Optional: Used as the mounted root, rather than the full Ceph tree, default is / | [optional] 
+**ReadOnly** | Pointer to **bool** | readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
+**SecretFile** | Pointer to **string** | secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
 **SecretRef** | Pointer to [**V1LocalObjectReference**](V1LocalObjectReference.md) |  | [optional] 
-**User** | Pointer to **string** | Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
+**User** | Pointer to **string** | user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it | [optional] 
 
 ## Methods
 

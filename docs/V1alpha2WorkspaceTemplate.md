@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ApiVersion** | Pointer to **string** | APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources | [optional] 
 **Kind** | Pointer to **string** | Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds | [optional] 
 **Metadata** | Pointer to [**V1ObjectMeta**](V1ObjectMeta.md) |  | [optional] 
-**Spec** | Pointer to [**V1beta1FederatedWorkspaceSpec**](V1beta1FederatedWorkspaceSpec.md) |  | [optional] 
+**Spec** | Pointer to [**V1alpha2FederatedWorkspaceSpec**](V1alpha2FederatedWorkspaceSpec.md) |  | [optional] 
 
 ## Methods
 
@@ -105,20 +105,20 @@ HasMetadata returns a boolean if a field has been set.
 
 ### GetSpec
 
-`func (o *V1alpha2WorkspaceTemplate) GetSpec() V1beta1FederatedWorkspaceSpec`
+`func (o *V1alpha2WorkspaceTemplate) GetSpec() V1alpha2FederatedWorkspaceSpec`
 
 GetSpec returns the Spec field if non-nil, zero value otherwise.
 
 ### GetSpecOk
 
-`func (o *V1alpha2WorkspaceTemplate) GetSpecOk() (*V1beta1FederatedWorkspaceSpec, bool)`
+`func (o *V1alpha2WorkspaceTemplate) GetSpecOk() (*V1alpha2FederatedWorkspaceSpec, bool)`
 
 GetSpecOk returns a tuple with the Spec field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpec
 
-`func (o *V1alpha2WorkspaceTemplate) SetSpec(v V1beta1FederatedWorkspaceSpec)`
+`func (o *V1alpha2WorkspaceTemplate) SetSpec(v V1alpha2FederatedWorkspaceSpec)`
 
 SetSpec sets Spec field to given value.
 

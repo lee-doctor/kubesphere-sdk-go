@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessModes** | Pointer to **[]string** | AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1 | [optional] 
+**AccessModes** | Pointer to **[]string** | accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1 | [optional] 
 **DataSource** | Pointer to [**V1TypedLocalObjectReference**](V1TypedLocalObjectReference.md) |  | [optional] 
-**Resources** | Pointer to [**V1ResourceRequirements**](V1ResourceRequirements.md) |  | [optional] 
+**DataSourceRef** | Pointer to [**V1TypedObjectReference**](V1TypedObjectReference.md) |  | [optional] 
+**Resources** | Pointer to [**V1VolumeResourceRequirements**](V1VolumeResourceRequirements.md) |  | [optional] 
 **Selector** | Pointer to [**V1LabelSelector**](V1LabelSelector.md) |  | [optional] 
-**StorageClassName** | Pointer to **string** | Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1 | [optional] 
+**StorageClassName** | Pointer to **string** | storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1 | [optional] 
+**VolumeAttributesClassName** | Pointer to **string** | volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it&#39;s not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#volumeattributesclass (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled. | [optional] 
 **VolumeMode** | Pointer to **string** | volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. | [optional] 
-**VolumeName** | Pointer to **string** | VolumeName is the binding reference to the PersistentVolume backing this claim. | [optional] 
+**VolumeName** | Pointer to **string** | volumeName is the binding reference to the PersistentVolume backing this claim. | [optional] 
 
 ## Methods
 
@@ -81,22 +83,47 @@ SetDataSource sets DataSource field to given value.
 
 HasDataSource returns a boolean if a field has been set.
 
+### GetDataSourceRef
+
+`func (o *V1PersistentVolumeClaimSpec) GetDataSourceRef() V1TypedObjectReference`
+
+GetDataSourceRef returns the DataSourceRef field if non-nil, zero value otherwise.
+
+### GetDataSourceRefOk
+
+`func (o *V1PersistentVolumeClaimSpec) GetDataSourceRefOk() (*V1TypedObjectReference, bool)`
+
+GetDataSourceRefOk returns a tuple with the DataSourceRef field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDataSourceRef
+
+`func (o *V1PersistentVolumeClaimSpec) SetDataSourceRef(v V1TypedObjectReference)`
+
+SetDataSourceRef sets DataSourceRef field to given value.
+
+### HasDataSourceRef
+
+`func (o *V1PersistentVolumeClaimSpec) HasDataSourceRef() bool`
+
+HasDataSourceRef returns a boolean if a field has been set.
+
 ### GetResources
 
-`func (o *V1PersistentVolumeClaimSpec) GetResources() V1ResourceRequirements`
+`func (o *V1PersistentVolumeClaimSpec) GetResources() V1VolumeResourceRequirements`
 
 GetResources returns the Resources field if non-nil, zero value otherwise.
 
 ### GetResourcesOk
 
-`func (o *V1PersistentVolumeClaimSpec) GetResourcesOk() (*V1ResourceRequirements, bool)`
+`func (o *V1PersistentVolumeClaimSpec) GetResourcesOk() (*V1VolumeResourceRequirements, bool)`
 
 GetResourcesOk returns a tuple with the Resources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResources
 
-`func (o *V1PersistentVolumeClaimSpec) SetResources(v V1ResourceRequirements)`
+`func (o *V1PersistentVolumeClaimSpec) SetResources(v V1VolumeResourceRequirements)`
 
 SetResources sets Resources field to given value.
 
@@ -155,6 +182,31 @@ SetStorageClassName sets StorageClassName field to given value.
 `func (o *V1PersistentVolumeClaimSpec) HasStorageClassName() bool`
 
 HasStorageClassName returns a boolean if a field has been set.
+
+### GetVolumeAttributesClassName
+
+`func (o *V1PersistentVolumeClaimSpec) GetVolumeAttributesClassName() string`
+
+GetVolumeAttributesClassName returns the VolumeAttributesClassName field if non-nil, zero value otherwise.
+
+### GetVolumeAttributesClassNameOk
+
+`func (o *V1PersistentVolumeClaimSpec) GetVolumeAttributesClassNameOk() (*string, bool)`
+
+GetVolumeAttributesClassNameOk returns a tuple with the VolumeAttributesClassName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVolumeAttributesClassName
+
+`func (o *V1PersistentVolumeClaimSpec) SetVolumeAttributesClassName(v string)`
+
+SetVolumeAttributesClassName sets VolumeAttributesClassName field to given value.
+
+### HasVolumeAttributesClassName
+
+`func (o *V1PersistentVolumeClaimSpec) HasVolumeAttributesClassName() bool`
+
+HasVolumeAttributesClassName returns a boolean if a field has been set.
 
 ### GetVolumeMode
 

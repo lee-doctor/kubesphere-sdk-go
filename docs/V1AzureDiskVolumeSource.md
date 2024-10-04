@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CachingMode** | Pointer to **string** | Host Caching mode: None, Read Only, Read Write. | [optional] 
-**DiskName** | **string** | The Name of the data disk in the blob storage | 
-**DiskURI** | **string** | The URI the data disk in the blob storage | 
-**FsType** | Pointer to **string** | Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. | [optional] 
-**Kind** | Pointer to **string** | Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared | [optional] 
-**ReadOnly** | Pointer to **bool** | Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
+**CachingMode** | Pointer to **string** | cachingMode is the Host Caching mode: None, Read Only, Read Write. | [optional] 
+**DiskName** | **string** | diskName is the Name of the data disk in the blob storage | 
+**DiskURI** | **string** | diskURI is the URI of data disk in the blob storage | 
+**FsType** | Pointer to **string** | fsType is Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. | [optional] 
+**Kind** | Pointer to **string** | kind expected values are Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared | [optional] 
+**ReadOnly** | Pointer to **bool** | readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. | [optional] 
 
 ## Methods
 

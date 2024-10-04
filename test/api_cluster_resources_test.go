@@ -1,5 +1,5 @@
 /*
-KubeSphere
+KS API
 
 Testing ClusterResourcesAPIService
 
@@ -22,11 +22,11 @@ func Test_openapi_ClusterResourcesAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test ClusterResourcesAPIService HandleClusterGetNamespacedAbnormalWorkloads", func(t *testing.T) {
+	t.Run("Test ClusterResourcesAPIService GetClusterAbnormalWorkloads", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ClusterResourcesAPI.HandleClusterGetNamespacedAbnormalWorkloads(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ClusterResourcesAPI.GetClusterAbnormalWorkloads(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -34,11 +34,11 @@ func Test_openapi_ClusterResourcesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ClusterResourcesAPIService HandleGetClusterQuotas", func(t *testing.T) {
+	t.Run("Test ClusterResourcesAPIService GetClusterOverview", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		resp, httpRes, err := apiClient.ClusterResourcesAPI.HandleGetClusterQuotas(context.Background()).Execute()
+		resp, httpRes, err := apiClient.ClusterResourcesAPI.GetClusterOverview(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
@@ -46,13 +46,39 @@ func Test_openapi_ClusterResourcesAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ClusterResourcesAPIService HandleListResources", func(t *testing.T) {
+	t.Run("Test ClusterResourcesAPIService GetClusterQuotas", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		resp, httpRes, err := apiClient.ClusterResourcesAPI.GetClusterQuotas(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ClusterResourcesAPIService GetClusterResource", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var resources string
+		var name string
+
+		httpRes, err := apiClient.ClusterResourcesAPI.GetClusterResource(context.Background(), resources, name).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test ClusterResourcesAPIService ListClusterResources", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
 		var resources string
 
-		resp, httpRes, err := apiClient.ClusterResourcesAPI.HandleListResources(context.Background(), resources).Execute()
+		resp, httpRes, err := apiClient.ClusterResourcesAPI.ListClusterResources(context.Background(), resources).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

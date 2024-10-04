@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **GmsaCredentialSpec** | Pointer to **string** | GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field. | [optional] 
 **GmsaCredentialSpecName** | Pointer to **string** | GMSACredentialSpecName is the name of the GMSA credential spec to use. | [optional] 
+**HostProcess** | Pointer to **bool** | HostProcess determines if a container should be run as a &#39;Host Process&#39; container. All of a Pod&#39;s containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers). In addition, if HostProcess is true then HostNetwork must also be set to true. | [optional] 
 **RunAsUserName** | Pointer to **string** | The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. | [optional] 
 
 ## Methods
@@ -76,6 +77,31 @@ SetGmsaCredentialSpecName sets GmsaCredentialSpecName field to given value.
 `func (o *V1WindowsSecurityContextOptions) HasGmsaCredentialSpecName() bool`
 
 HasGmsaCredentialSpecName returns a boolean if a field has been set.
+
+### GetHostProcess
+
+`func (o *V1WindowsSecurityContextOptions) GetHostProcess() bool`
+
+GetHostProcess returns the HostProcess field if non-nil, zero value otherwise.
+
+### GetHostProcessOk
+
+`func (o *V1WindowsSecurityContextOptions) GetHostProcessOk() (*bool, bool)`
+
+GetHostProcessOk returns a tuple with the HostProcess field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHostProcess
+
+`func (o *V1WindowsSecurityContextOptions) SetHostProcess(v bool)`
+
+SetHostProcess sets HostProcess field to given value.
+
+### HasHostProcess
+
+`func (o *V1WindowsSecurityContextOptions) HasHostProcess() bool`
+
+HasHostProcess returns a boolean if a field has been set.
 
 ### GetRunAsUserName
 

@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Limits** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ | [optional] 
-**Requests** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ | [optional] 
+**Claims** | Pointer to [**[]V1ResourceClaim**](V1ResourceClaim.md) | Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.  This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.  This field is immutable. It can only be set for containers. | [optional] 
+**Limits** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ | [optional] 
+**Requests** | Pointer to [**map[string]ResourceQuantity**](ResourceQuantity.md) | Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ | [optional] 
 
 ## Methods
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewV1ResourceRequirementsWithDefaults instantiates a new V1ResourceRequirements object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetClaims
+
+`func (o *V1ResourceRequirements) GetClaims() []V1ResourceClaim`
+
+GetClaims returns the Claims field if non-nil, zero value otherwise.
+
+### GetClaimsOk
+
+`func (o *V1ResourceRequirements) GetClaimsOk() (*[]V1ResourceClaim, bool)`
+
+GetClaimsOk returns a tuple with the Claims field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClaims
+
+`func (o *V1ResourceRequirements) SetClaims(v []V1ResourceClaim)`
+
+SetClaims sets Claims field to given value.
+
+### HasClaims
+
+`func (o *V1ResourceRequirements) HasClaims() bool`
+
+HasClaims returns a boolean if a field has been set.
 
 ### GetLimits
 

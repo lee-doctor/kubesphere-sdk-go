@@ -1,5 +1,5 @@
 /*
-KubeSphere
+KS API
 
 Testing DefaultAPIService
 
@@ -22,17 +22,1101 @@ func Test_openapi_DefaultAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test DefaultAPIService HandleJobReRun", func(t *testing.T) {
+	t.Run("Test DefaultAPIService AppCrList", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
 
-		var job string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.AppCrList(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService AppCrListV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.AppCrListV2(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService AppExampleCr", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var name string
+
+		httpRes, err := apiClient.DefaultAPI.AppExampleCr(context.Background(), app, name).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService AppVersionAction", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.AppVersionAction(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateAttachment", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateAttachment(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateApp(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateAppRls(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateAppRlsV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateAppRlsV2(context.Background(), namespace, application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateAppVersion(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateCR", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateCR(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateCRV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
 		var namespace string
 
-		resp, httpRes, err := apiClient.DefaultAPI.HandleJobReRun(context.Background(), job, namespace).Execute()
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateCRV2(context.Background(), namespace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateCategory", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateCategory(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateNamespaceAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateNamespaceAppRls(context.Background(), namespace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateRepo(context.Background(), repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateRepoV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateRepoV2(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateSpecificApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateSpecificApp(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateSpecificAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateSpecificAppRls(context.Background(), application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateSpecificAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateSpecificAppVersion(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateSpecificCategory", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var category string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateSpecificCategory(context.Background(), category).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceApp(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceAppRls(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceAppVersion(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceCR", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceCR(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceRepo(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceSpecificApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceSpecificApp(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceSpecificAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceSpecificAppVersion(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateOrUpdateWorkspaceSpecificRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.CreateOrUpdateWorkspaceSpecificRepo(context.Background(), workspace, repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService CreateWorkspaceAttachment", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.CreateWorkspaceAttachment(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteApp(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAppCr", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAppCr(context.Background(), crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAppCrV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAppCrV2(context.Background(), namespace, crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAppRls(context.Background(), application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAppRlsV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAppRlsV2(context.Background(), namespace, application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAppVersion(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAttachments", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var attachment string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAttachments(context.Background(), attachment).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteAttachmentsV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var attachment string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteAttachmentsV2(context.Background(), workspace, attachment).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteCategory", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var category string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteCategory(context.Background(), category).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteRepo(context.Background(), repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteWorkspaceApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteWorkspaceApp(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteWorkspaceAppCr", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteWorkspaceAppCr(context.Background(), workspace, crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteWorkspaceAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteWorkspaceAppVersion(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DeleteWorkspaceRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.DeleteWorkspaceRepo(context.Background(), workspace, repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeApp(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeAppCr", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeAppCr(context.Background(), crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeAppCrV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeAppCrV2(context.Background(), namespace, crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeAppRls(context.Background(), application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeAppVersion(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeAttachment", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var attachment string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeAttachment(context.Background(), attachment).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeCategory", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var category string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeCategory(context.Background(), category).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeNamespaceAppRlsV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var application string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeNamespaceAppRlsV2(context.Background(), namespace, application).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeRepo(context.Background(), repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeWorkspaceApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeWorkspaceApp(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeWorkspaceAppCr", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var crname string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeWorkspaceAppCr(context.Background(), workspace, crname).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeWorkspaceAppVersion", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeWorkspaceAppVersion(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeWorkspaceAttachment", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var attachment string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeWorkspaceAttachment(context.Background(), workspace, attachment).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DescribeWorkspaceRepo", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.DescribeWorkspaceRepo(context.Background(), workspace, repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService DoAppAction", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.DoAppAction(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService GetAppVersionFiles", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.GetAppVersionFiles(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService GetAppVersionPackage", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.GetAppVersionPackage(context.Background(), app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService GetImage", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var file string
+
+		httpRes, err := apiClient.DefaultAPI.GetImage(context.Background(), file).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService GetWorkspaceAppVersionFiles", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.GetWorkspaceAppVersionFiles(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService GetWorkspaceAppVersionPackage", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.GetWorkspaceAppVersionPackage(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.ListAppRls(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListAppVersions", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.ListAppVersions(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListApps", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.ListApps(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListCategories", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.ListCategories(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListExtensionVersionFiles", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var version string
+
+		resp, httpRes, err := apiClient.DefaultAPI.ListExtensionVersionFiles(context.Background(), version).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListIngressClassScopes", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+
+		resp, httpRes, err := apiClient.DefaultAPI.ListIngressClassScopes(context.Background(), namespace).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListNamespaceAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+
+		httpRes, err := apiClient.DefaultAPI.ListNamespaceAppRls(context.Background(), namespace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListRepoEvents", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.ListRepoEvents(context.Background(), repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListRepos", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.ListRepos(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListReviews", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.ListReviews(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListWorkspaceAppRls", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.ListWorkspaceAppRls(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListWorkspaceAppVersions", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.ListWorkspaceAppVersions(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListWorkspaceApps", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.ListWorkspaceApps(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListWorkspaceRepoEvents", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var repo string
+
+		httpRes, err := apiClient.DefaultAPI.ListWorkspaceRepoEvents(context.Background(), workspace, repo).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService ListWorkspaceRepos", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+
+		httpRes, err := apiClient.DefaultAPI.ListWorkspaceRepos(context.Background(), workspace).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService NamespaceAppCrList", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var namespace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.NamespaceAppCrList(context.Background(), namespace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService PatchApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.PatchApp(context.Background(), app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService PatchWorkspaceApp", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+
+		httpRes, err := apiClient.DefaultAPI.PatchWorkspaceApp(context.Background(), workspace, app).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService UploadImage", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		httpRes, err := apiClient.DefaultAPI.UploadImage(context.Background()).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService WorkspaceAppExampleCrV2", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var name string
+
+		httpRes, err := apiClient.DefaultAPI.WorkspaceAppExampleCrV2(context.Background(), workspace, app, name).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test DefaultAPIService WorkspaceAppVersionAction", func(t *testing.T) {
+
+		t.Skip("skip test") // remove to run test
+
+		var workspace string
+		var app string
+		var version string
+
+		httpRes, err := apiClient.DefaultAPI.WorkspaceAppVersionAction(context.Background(), workspace, app, version).Execute()
+
+		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

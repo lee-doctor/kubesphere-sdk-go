@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessToken** | **string** |  | 
 **ExpiresIn** | Pointer to **int32** |  | [optional] 
+**IdToken** | Pointer to **string** |  | [optional] 
 **RefreshToken** | Pointer to **string** |  | [optional] 
 **TokenType** | Pointer to **string** |  | [optional] 
 
@@ -72,6 +73,31 @@ SetExpiresIn sets ExpiresIn field to given value.
 `func (o *OauthToken) HasExpiresIn() bool`
 
 HasExpiresIn returns a boolean if a field has been set.
+
+### GetIdToken
+
+`func (o *OauthToken) GetIdToken() string`
+
+GetIdToken returns the IdToken field if non-nil, zero value otherwise.
+
+### GetIdTokenOk
+
+`func (o *OauthToken) GetIdTokenOk() (*string, bool)`
+
+GetIdTokenOk returns a tuple with the IdToken field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdToken
+
+`func (o *OauthToken) SetIdToken(v string)`
+
+SetIdToken sets IdToken field to given value.
+
+### HasIdToken
+
+`func (o *OauthToken) HasIdToken() bool`
+
+HasIdToken returns a boolean if a field has been set.
 
 ### GetRefreshToken
 

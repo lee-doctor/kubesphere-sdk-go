@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Conditions** | Pointer to [**[]V1ReplicaSetCondition**](V1ReplicaSetCondition.md) | Represents the latest available observations of a replica set&#39;s current state. | [optional] 
 **FullyLabeledReplicas** | Pointer to **int32** | The number of pods that have labels matching the labels of the pod template of the replicaset. | [optional] 
 **ObservedGeneration** | Pointer to **int64** | ObservedGeneration reflects the generation of the most recently observed ReplicaSet. | [optional] 
-**ReadyReplicas** | Pointer to **int32** | The number of ready replicas for this replica set. | [optional] 
-**Replicas** | **int32** | Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller | 
+**ReadyReplicas** | Pointer to **int32** | readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition. | [optional] 
+**Replicas** | **int32** | Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller | 
 
 ## Methods
 

@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **FieldsV1** | Pointer to **string** | FieldsV1 holds the first JSON version format as described in the \&quot;FieldsV1\&quot; type. | [optional] 
 **Manager** | Pointer to **string** | Manager is an identifier of the workflow managing these fields. | [optional] 
 **Operation** | Pointer to **string** | Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are &#39;Apply&#39; and &#39;Update&#39;. | [optional] 
-**Time** | Pointer to **string** | Time is timestamp of when these fields were set. It should always be empty if Operation is &#39;Apply&#39; | [optional] 
+**Subresource** | Pointer to **string** | Subresource is the name of the subresource used to update that object, or empty string if the object was updated through the main resource. The value of this field is used to distinguish between managers, even if they share the same name. For example, a status update will be distinct from a regular update using the same manager name. Note that the APIVersion field is not related to the Subresource field and it always corresponds to the version of the main resource. | [optional] 
+**Time** | Pointer to **string** | Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over. | [optional] 
 
 ## Methods
 
@@ -154,6 +155,31 @@ SetOperation sets Operation field to given value.
 `func (o *V1ManagedFieldsEntry) HasOperation() bool`
 
 HasOperation returns a boolean if a field has been set.
+
+### GetSubresource
+
+`func (o *V1ManagedFieldsEntry) GetSubresource() string`
+
+GetSubresource returns the Subresource field if non-nil, zero value otherwise.
+
+### GetSubresourceOk
+
+`func (o *V1ManagedFieldsEntry) GetSubresourceOk() (*string, bool)`
+
+GetSubresourceOk returns a tuple with the Subresource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubresource
+
+`func (o *V1ManagedFieldsEntry) SetSubresource(v string)`
+
+SetSubresource sets Subresource field to given value.
+
+### HasSubresource
+
+`func (o *V1ManagedFieldsEntry) HasSubresource() bool`
+
+HasSubresource returns a boolean if a field has been set.
 
 ### GetTime
 

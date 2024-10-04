@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PostStart** | Pointer to [**V1Handler**](V1Handler.md) |  | [optional] 
-**PreStop** | Pointer to [**V1Handler**](V1Handler.md) |  | [optional] 
+**PostStart** | Pointer to [**V1LifecycleHandler**](V1LifecycleHandler.md) |  | [optional] 
+**PreStop** | Pointer to [**V1LifecycleHandler**](V1LifecycleHandler.md) |  | [optional] 
 
 ## Methods
 
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPostStart
 
-`func (o *V1Lifecycle) GetPostStart() V1Handler`
+`func (o *V1Lifecycle) GetPostStart() V1LifecycleHandler`
 
 GetPostStart returns the PostStart field if non-nil, zero value otherwise.
 
 ### GetPostStartOk
 
-`func (o *V1Lifecycle) GetPostStartOk() (*V1Handler, bool)`
+`func (o *V1Lifecycle) GetPostStartOk() (*V1LifecycleHandler, bool)`
 
 GetPostStartOk returns a tuple with the PostStart field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPostStart
 
-`func (o *V1Lifecycle) SetPostStart(v V1Handler)`
+`func (o *V1Lifecycle) SetPostStart(v V1LifecycleHandler)`
 
 SetPostStart sets PostStart field to given value.
 
@@ -53,20 +53,20 @@ HasPostStart returns a boolean if a field has been set.
 
 ### GetPreStop
 
-`func (o *V1Lifecycle) GetPreStop() V1Handler`
+`func (o *V1Lifecycle) GetPreStop() V1LifecycleHandler`
 
 GetPreStop returns the PreStop field if non-nil, zero value otherwise.
 
 ### GetPreStopOk
 
-`func (o *V1Lifecycle) GetPreStopOk() (*V1Handler, bool)`
+`func (o *V1Lifecycle) GetPreStopOk() (*V1LifecycleHandler, bool)`
 
 GetPreStopOk returns a tuple with the PreStop field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreStop
 
-`func (o *V1Lifecycle) SetPreStop(v V1Handler)`
+`func (o *V1Lifecycle) SetPreStop(v V1LifecycleHandler)`
 
 SetPreStop sets PreStop field to given value.
 
