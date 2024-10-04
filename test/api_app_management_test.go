@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_AppManagementAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoAppAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -39,7 +39,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoAppVersionAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -54,7 +54,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoRepoAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var repo string
 
@@ -68,7 +68,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoWorkspaceAppVersionAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var version string
@@ -84,7 +84,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoWorkspaceRepoAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var repo string
@@ -99,7 +99,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService DoWorkspacesAppAction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var workspace string
@@ -115,7 +115,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService ListAppVersionAudits", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -129,7 +129,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService ListReviews", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppManagementAPI.ListReviews(context.Background()).Execute()
 
@@ -141,7 +141,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService ListVersionSpecificAppVersionAudits", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -156,7 +156,7 @@ func Test_openapi_AppManagementAPIService(t *testing.T) {
 
 	t.Run("Test AppManagementAPIService ListWorkspaceAppVersionAudits", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var version string

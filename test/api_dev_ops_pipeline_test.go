@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService CheckCron", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 
@@ -38,7 +38,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService CheckScriptCompile", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -53,7 +53,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService DeleteCredential", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var credential string
@@ -68,7 +68,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService DeletePipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -83,7 +83,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetArtifacts", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -99,7 +99,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchArtifacts", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -116,7 +116,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchNodeSteps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -134,7 +134,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchNodesDetail", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -151,7 +151,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -167,7 +167,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchPipelineRun", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -184,7 +184,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchPipelineRunNodes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -201,7 +201,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchRunLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -217,7 +217,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetBranchStepLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -235,7 +235,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetConsoleLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -249,7 +249,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetCrumb", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DevOpsPipelineAPI.GetCrumb(context.Background()).Execute()
 
@@ -261,7 +261,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetNodeSteps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -278,7 +278,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetNodesDetail", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -294,7 +294,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -309,7 +309,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetPipelineBranch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -324,7 +324,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetPipelineRun", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -340,7 +340,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetPipelineRunNodes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -356,7 +356,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetRunLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -371,7 +371,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService GetStepLog", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -388,7 +388,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService ListPipelineRuns", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var pipeline string
 		var devops string
@@ -403,7 +403,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService ListPipelines", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.DevOpsPipelineAPI.ListPipelines(context.Background()).Execute()
 
@@ -415,7 +415,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService ReplayBranchPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -432,7 +432,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService ReplayPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -448,7 +448,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService RunBranchPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -464,7 +464,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService RunPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -479,7 +479,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService ScanBranch", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -493,7 +493,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService StopBranchPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -510,7 +510,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService StopPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -526,7 +526,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService SubmitBranchInputStep", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -544,7 +544,7 @@ func Test_openapi_DevOpsPipelineAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsPipelineAPIService SubmitInputStep", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string

@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_AppTemplateAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService CreateApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -38,7 +38,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService CreateAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -52,7 +52,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService CreateWorkspaceApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -67,7 +67,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService CreateWorkspaceAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -82,7 +82,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DeleteApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -96,7 +96,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DeleteAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -111,7 +111,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DeleteWorkspaceApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -126,7 +126,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DeleteWorkspaceAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var version string
@@ -142,7 +142,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DescribeApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -156,7 +156,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DescribeAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -171,7 +171,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DescribeWorkspaceApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -186,7 +186,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService DescribeWorkspaceAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var version string
@@ -202,7 +202,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService GetAppVersionFiles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -217,7 +217,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService GetAppVersionPackage", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -232,7 +232,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ListAppVersions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -246,7 +246,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ListApps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppTemplateAPI.ListApps(context.Background()).Execute()
 
@@ -258,7 +258,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ListWorkspaceAppVersions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -273,7 +273,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ListWorkspaceApps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -287,7 +287,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ModifyApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -301,7 +301,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ModifyAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var version string
 		var app string
@@ -316,7 +316,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ModifyWorkspaceApp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var app string
@@ -331,7 +331,7 @@ func Test_openapi_AppTemplateAPIService(t *testing.T) {
 
 	t.Run("Test AppTemplateAPIService ModifyWorkspaceAppVersion", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var version string

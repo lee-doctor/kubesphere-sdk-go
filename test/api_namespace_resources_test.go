@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleCreateRouter", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -38,7 +38,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleDeleteRouter", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -52,7 +52,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetDaemonSetRevision", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var daemonset string
 		var namespace string
@@ -68,7 +68,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetDeploymentRevision", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var deployment string
 		var namespace string
@@ -84,7 +84,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetNamespaceQuotas", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -98,7 +98,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetNamespacedAbnormalWorkloads", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -112,7 +112,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetRouter", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -126,7 +126,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleGetStatefulSetRevision", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var statefulset string
 		var namespace string
@@ -142,7 +142,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleListNamespaceResources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var resources string
@@ -157,7 +157,7 @@ func Test_openapi_NamespaceResourcesAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceResourcesAPIService HandleUpdateRouter", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 

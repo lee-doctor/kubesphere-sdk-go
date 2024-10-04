@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_WorkspaceMetricsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_WorkspaceMetricsAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMetricsAPIService HandleAllWorkspaceMetricsQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WorkspaceMetricsAPI.HandleAllWorkspaceMetricsQuery(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_WorkspaceMetricsAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMetricsAPIService HandleWorkspaceMetricsQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 

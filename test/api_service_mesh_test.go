@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_ServiceMeshAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetAppHealth", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var app string
@@ -39,7 +39,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetAppMetrics", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var app string
@@ -54,7 +54,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetNamespaceGraph", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -68,7 +68,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetNamespaceHealth", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -82,7 +82,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetNamespaceMetrics", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -96,7 +96,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetServiceHealth", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var service string
@@ -111,7 +111,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetServiceMetrics", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var service string
@@ -126,7 +126,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetServiceTracing", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var service string
@@ -140,7 +140,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetWorkloadHealth", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var workload string
@@ -155,7 +155,7 @@ func Test_openapi_ServiceMeshAPIService(t *testing.T) {
 
 	t.Run("Test ServiceMeshAPIService GetWorkloadMetrics", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var workload string

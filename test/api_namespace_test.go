@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_NamespaceAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService CreateNamespace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -38,7 +38,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService DeleteNamespace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -53,7 +53,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService DescribeNamespace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -68,7 +68,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService ListFederatedNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.NamespaceAPI.ListFederatedNamespaces(context.Background()).Execute()
 
@@ -80,7 +80,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService ListNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.NamespaceAPI.ListNamespaces(context.Background()).Execute()
 
@@ -92,7 +92,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService ListUserWorkspaceNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -106,7 +106,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService ListWorkspaceFederatedNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -120,7 +120,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService ListWorkspaceNamespaces", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string
@@ -135,7 +135,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService PatchNamespace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -150,7 +150,7 @@ func Test_openapi_NamespaceAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceAPIService UpdateNamespace", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string

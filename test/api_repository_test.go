@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_RepositoryAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService CreateRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.RepositoryAPI.CreateRepo(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService CreateWorkspaceRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -50,7 +50,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService DeleteRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var repo string
 
@@ -64,7 +64,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService DeleteWorkspaceRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var repo string
@@ -79,7 +79,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService DescribeRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var repo string
 
@@ -93,7 +93,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService DescribeWorkspaceRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var repo string
@@ -108,7 +108,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ListRepoEvents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var repo string
 
@@ -122,7 +122,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ListRepos", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.RepositoryAPI.ListRepos(context.Background()).Execute()
 
@@ -134,7 +134,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ListWorkspaceRepoEvents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var repo string
@@ -149,7 +149,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ListWorkspaceRepos", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -163,7 +163,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ModifyRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var repo string
 
@@ -177,7 +177,7 @@ func Test_openapi_RepositoryAPIService(t *testing.T) {
 
 	t.Run("Test RepositoryAPIService ModifyWorkspaceRepo", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var repo string

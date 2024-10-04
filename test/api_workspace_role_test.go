@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService CreateWorkspaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -38,7 +38,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService DeleteWorkspaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacerole string
@@ -53,7 +53,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService DescribeWorkspaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacerole string
@@ -68,7 +68,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService ListWorkspaceRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -82,7 +82,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService PatchWorkspaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacerole string
@@ -97,7 +97,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService RetrieveWorkspaceMemberRoleTemplates", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string
@@ -112,7 +112,7 @@ func Test_openapi_WorkspaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceRoleAPIService UpdateWorkspaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacerole string

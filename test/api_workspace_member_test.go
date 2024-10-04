@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMemberAPIService CreateWorkspaceMembers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -38,7 +38,7 @@ func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMemberAPIService DescribeWorkspaceMember", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string
@@ -53,7 +53,7 @@ func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMemberAPIService ListWorkspaceMembers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -67,7 +67,7 @@ func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMemberAPIService RemoveWorkspaceMember", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string
@@ -82,7 +82,7 @@ func Test_openapi_WorkspaceMemberAPIService(t *testing.T) {
 
 	t.Run("Test WorkspaceMemberAPIService UpdateWorkspaceMember", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string

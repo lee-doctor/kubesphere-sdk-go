@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_AppInstanceAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService CreateWorkspaceApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -40,7 +40,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService DeleteApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -57,7 +57,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService DescribeApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -74,7 +74,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService DescribeWorkspaceApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -90,7 +90,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService ListApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.AppInstanceAPI.ListApplications(context.Background()).Execute()
 
@@ -102,7 +102,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService ListClusterApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -117,7 +117,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService ListClusterWorkspaceApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -133,7 +133,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService ListWorkspaceApplications", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -148,7 +148,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService ModifyApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string
@@ -165,7 +165,7 @@ func Test_openapi_AppInstanceAPIService(t *testing.T) {
 
 	t.Run("Test AppInstanceAPIService UpgradeApplication", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var cluster string

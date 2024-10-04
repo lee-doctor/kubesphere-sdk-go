@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_JenkinsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_JenkinsAPIService(t *testing.T) {
 
 	t.Run("Test JenkinsAPIService Func1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var path string
 
@@ -37,7 +37,7 @@ func Test_openapi_JenkinsAPIService(t *testing.T) {
 
 	t.Run("Test JenkinsAPIService Func2", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var path string
 		var devops string

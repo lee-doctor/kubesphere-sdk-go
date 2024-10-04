@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_GroupAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService CreateGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -38,7 +38,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService CreateGroupBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -52,7 +52,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService CreateWorkspaceRoleBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -66,7 +66,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService DeleteGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -81,7 +81,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService DeleteGroupBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var groupbinding string
@@ -96,7 +96,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService DeleteRoleBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var namespace string
@@ -112,7 +112,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService DeleteWorkspaceRoleBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var rolebinding string
@@ -127,7 +127,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService DescribeGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -142,7 +142,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService ListGroupBindings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -157,7 +157,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService ListGroupDevOpsRoleBindings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -172,7 +172,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService ListGroupRoleBindings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -187,7 +187,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService ListGroupWorkspaceRoleBindings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string
@@ -202,7 +202,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService ListWorkspaceGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -216,7 +216,7 @@ func Test_openapi_GroupAPIService(t *testing.T) {
 
 	t.Run("Test GroupAPIService UpdateGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var group string

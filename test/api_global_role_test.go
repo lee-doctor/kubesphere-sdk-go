@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_GlobalRoleAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService CreateGlobalRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.GlobalRoleAPI.CreateGlobalRole(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService DeleteGlobalRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var globalrole string
 
@@ -50,7 +50,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService DescribeGlobalRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var globalrole string
 
@@ -64,7 +64,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService ListGlobalRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.GlobalRoleAPI.ListGlobalRoles(context.Background()).Execute()
 
@@ -76,7 +76,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService PatchGlobalRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var globalrole string
 
@@ -90,7 +90,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService RetrieveMemberRoleTemplates", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var user string
 
@@ -104,7 +104,7 @@ func Test_openapi_GlobalRoleAPIService(t *testing.T) {
 
 	t.Run("Test GlobalRoleAPIService UpdateGlobalRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var globalrole string
 

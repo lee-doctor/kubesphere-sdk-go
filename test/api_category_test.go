@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_CategoryAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_CategoryAPIService(t *testing.T) {
 
 	t.Run("Test CategoryAPIService CreateCategory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var app string
 
@@ -38,7 +38,7 @@ func Test_openapi_CategoryAPIService(t *testing.T) {
 
 	t.Run("Test CategoryAPIService DeleteCategory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var category string
 
@@ -52,7 +52,7 @@ func Test_openapi_CategoryAPIService(t *testing.T) {
 
 	t.Run("Test CategoryAPIService DescribeCategory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var category string
 
@@ -66,7 +66,7 @@ func Test_openapi_CategoryAPIService(t *testing.T) {
 
 	t.Run("Test CategoryAPIService ListCategories", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.CategoryAPI.ListCategories(context.Background()).Execute()
 
@@ -78,7 +78,7 @@ func Test_openapi_CategoryAPIService(t *testing.T) {
 
 	t.Run("Test CategoryAPIService ModifyCategory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var category string
 

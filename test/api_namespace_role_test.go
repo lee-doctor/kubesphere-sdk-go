@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService CreateNamespaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -38,7 +38,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService CreateRoleBinding", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -52,7 +52,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService DeleteNamespaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var role string
@@ -67,7 +67,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService DescribeNamespaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var role string
@@ -82,7 +82,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService ListNamespaceRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -96,7 +96,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService PatchNamespaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var role string
@@ -111,7 +111,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService RetrieveNamespaceMemberRoleTemplates", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var member string
@@ -126,7 +126,7 @@ func Test_openapi_NamespaceRoleAPIService(t *testing.T) {
 
 	t.Run("Test NamespaceRoleAPIService UpdateNamespaceRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var role string

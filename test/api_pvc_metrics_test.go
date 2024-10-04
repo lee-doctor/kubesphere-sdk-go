@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_PVCMetricsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_PVCMetricsAPIService(t *testing.T) {
 
 	t.Run("Test PVCMetricsAPIService HandleNamespacePVCMetricsQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -38,7 +38,7 @@ func Test_openapi_PVCMetricsAPIService(t *testing.T) {
 
 	t.Run("Test PVCMetricsAPIService HandlePVCMetricsQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var storageclass string
 
@@ -52,7 +52,7 @@ func Test_openapi_PVCMetricsAPIService(t *testing.T) {
 
 	t.Run("Test PVCMetricsAPIService HandleSpecificPVCMetricsQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 		var pvc string

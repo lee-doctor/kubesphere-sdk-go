@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_CustomMetricsAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleClusterAdhocQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.CustomMetricsAPI.HandleClusterAdhocQuery(context.Background()).Execute()
 
@@ -36,7 +36,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleClusterMetadataQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.CustomMetricsAPI.HandleClusterMetadataQuery(context.Background()).Execute()
 
@@ -48,7 +48,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleClusterMetricLabelSetQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.CustomMetricsAPI.HandleClusterMetricLabelSetQuery(context.Background()).Execute()
 
@@ -60,7 +60,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleMetadataQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -74,7 +74,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleMetricLabelSetQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 
@@ -88,7 +88,7 @@ func Test_openapi_CustomMetricsAPIService(t *testing.T) {
 
 	t.Run("Test CustomMetricsAPIService HandleNamespaceAdhocQuery", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var namespace string
 

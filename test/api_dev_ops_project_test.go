@@ -11,10 +11,10 @@ package openapi
 
 import (
 	"context"
+	openapiclient "github.com/lee-doctor/kubesphere-sdk-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
@@ -24,7 +24,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService CreateCredential", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 
@@ -38,7 +38,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService CreateDevOpsProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -52,7 +52,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService CreatePipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 
@@ -66,7 +66,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService DeleteDevOpsProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var devops string
@@ -81,7 +81,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService GetCredential", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var credential string
@@ -96,7 +96,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService GetDevOpsProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var devops string
@@ -111,7 +111,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService GetPipelineByName", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
@@ -126,7 +126,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService ListCredential", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 
@@ -140,7 +140,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService ListDevOpsProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -154,7 +154,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService ListDevOpsProjects", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var workspacemember string
@@ -169,7 +169,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService ListPipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 
@@ -183,7 +183,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService ListUserDevOpsProjects", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 
@@ -197,7 +197,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService UpdateCredential", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var credential string
@@ -212,7 +212,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService UpdateDevOpsProject", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var workspace string
 		var devops string
@@ -227,7 +227,7 @@ func Test_openapi_DevOpsProjectAPIService(t *testing.T) {
 
 	t.Run("Test DevOpsProjectAPIService UpdatePipeline", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var devops string
 		var pipeline string
